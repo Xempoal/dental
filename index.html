@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Clínica del Dr. Mateo Solís — Cirugía Oral y Maxilofacial. Odontología de precisión, implantes y estética dental en un entorno de calma y confianza." />
+  <title>Dr. Mateo Solís · Cirujano Dentista</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>" />
+</head>
+<body>
+
+  <!-- Cursor -->
+  <div class="cursor" data-cursor></div>
+
+  <!-- Progress -->
+  <div class="scroll-progress" data-progress></div>
+
+  <!-- Nav -->
+  <header class="nav" data-nav>
+    <a href="#inicio" class="nav__brand">
+      <span class="nav__mark">◍</span>
+      <span class="nav__name">Solís<em>·</em>Dental</span>
+    </a>
+    <nav class="nav__links">
+      <a href="#servicios">Servicios</a>
+      <a href="#doctor">El Doctor</a>
+      <a href="#metodo">Método</a>
+      <a href="#opiniones">Opiniones</a>
+    </nav>
+    <a href="#contacto" class="btn btn--sm">Agendar cita</a>
+    <button class="nav__burger" data-burger aria-label="Menú">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div class="hero__grid">
+      <div class="hero__col hero__col--text">
+        <p class="eyebrow reveal">Cirugía Oral & Maxilofacial</p>
+        <h1 class="hero__title">
+          <span class="reveal" style="--d:.05s">Sonrisas</span>
+          <span class="reveal hero__title--accent" style="--d:.15s">diseñadas</span>
+          <span class="reveal" style="--d:.25s">con precisión.</span>
+        </h1>
+        <p class="hero__lead reveal" style="--d:.4s">
+          Odontología de alta especialidad en un entorno de calma. Implantes,
+          cirugía y estética dental con tecnología que cuida cada detalle de tu salud.
+        </p>
+        <div class="hero__cta reveal" style="--d:.55s">
+          <a href="#contacto" class="btn">Reservar valoración</a>
+          <a href="#servicios" class="link-underline">Conocer tratamientos →</a>
+        </div>
+        <div class="hero__stats reveal" style="--d:.7s">
+          <div><strong data-count="14">0</strong><span>años de experiencia</span></div>
+          <div><strong data-count="3200">0</strong><span>pacientes atendidos</span></div>
+          <div><strong data-count="98">0</strong><span>% satisfacción</span></div>
+        </div>
+      </div>
+      <div class="hero__col hero__col--media">
+        <figure class="hero__photo reveal-img">
+          <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=900&q=80" alt="Consultorio dental moderno" />
+          <figcaption class="hero__badge">
+            <span class="dot"></span> Atención el mismo día
+          </figcaption>
+        </figure>
+        <div class="hero__chip">
+          <span class="hero__chip-num">★ 4.9</span>
+          <span class="hero__chip-txt">+600 reseñas verificadas</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll">Desliza <span></span></div>
+  </section>
+
+  <!-- Marquee removed per request: static trust strip -->
+  <section class="trust">
+    <ul>
+      <li>Implantología</li>
+      <li>·</li>
+      <li>Endodoncia</li>
+      <li>·</li>
+      <li>Ortodoncia invisible</li>
+      <li>·</li>
+      <li>Carillas de porcelana</li>
+      <li>·</li>
+      <li>Cirugía guiada 3D</li>
+    </ul>
+  </section>
+
+  <!-- Servicios -->
+  <section class="services section" id="servicios">
+    <div class="section__head">
+      <p class="eyebrow reveal">01 — Especialidades</p>
+      <h2 class="section__title reveal">Tratamientos pensados<br />para tu tranquilidad.</h2>
+    </div>
+    <div class="services__grid">
+      <article class="card reveal" style="--d:.05s">
+        <span class="card__num">01</span>
+        <h3>Implantes dentales</h3>
+        <p>Reemplazo de piezas con titanio de grado médico y planificación digital guiada por tomografía 3D.</p>
+        <span class="card__arrow">↗</span>
+      </article>
+      <article class="card reveal" style="--d:.15s">
+        <span class="card__num">02</span>
+        <h3>Cirugía oral</h3>
+        <p>Extracciones complejas y muelas del juicio con técnicas mínimamente invasivas y recuperación rápida.</p>
+        <span class="card__arrow">↗</span>
+      </article>
+      <article class="card reveal" style="--d:.25s">
+        <span class="card__num">03</span>
+        <h3>Estética dental</h3>
+        <p>Carillas, blanqueamiento y diseño de sonrisa para resultados naturales y armónicos con tu rostro.</p>
+        <span class="card__arrow">↗</span>
+      </article>
+      <article class="card reveal" style="--d:.35s">
+        <span class="card__num">04</span>
+        <h3>Ortodoncia invisible</h3>
+        <p>Alineadores transparentes a medida que corrigen tu mordida sin alterar tu día a día.</p>
+        <span class="card__arrow">↗</span>
+      </article>
+      <article class="card reveal" style="--d:.45s">
+        <span class="card__num">05</span>
+        <h3>Endodoncia</h3>
+        <p>Tratamientos de conducto indoloros con microscopía para salvar tus piezas naturales.</p>
+        <span class="card__arrow">↗</span>
+      </article>
+      <article class="card reveal" style="--d:.55s">
+        <span class="card__num">06</span>
+        <h3>Odontopediatría</h3>
+        <p>Atención cálida y amable para los más pequeños, creando hábitos sanos desde la infancia.</p>
+        <span class="card__arrow">↗</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- Doctor -->
+  <section class="doctor section" id="doctor">
+    <div class="doctor__media reveal-img">
+      <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=80" alt="Dr. Mateo Solís, cirujano dentista" />
+      <div class="doctor__sign">Dr. Mateo Solís</div>
+    </div>
+    <div class="doctor__text">
+      <p class="eyebrow reveal">02 — El Doctor</p>
+      <h2 class="section__title reveal">Manos expertas detrás<br />de cada sonrisa.</h2>
+      <p class="reveal">
+        El <strong>Dr. Mateo Solís</strong> es cirujano dentista egresado de la
+        Universidad Nacional, con especialidad en Cirugía Oral y Maxilofacial y más
+        de 14 años dedicados a la implantología avanzada.
+      </p>
+      <p class="reveal">
+        Su filosofía es simple: tratar a cada paciente como le gustaría ser tratado.
+        Diagnósticos honestos, sin dolor y con el respaldo de la mejor tecnología.
+      </p>
+      <ul class="doctor__creds reveal">
+        <li><span>↳</span> Especialidad — Cirugía Oral y Maxilofacial</li>
+        <li><span>↳</span> Certificación en Implantología Avanzada (ITI)</li>
+        <li><span>↳</span> Miembro del Colegio de Cirujanos Dentistas</li>
+        <li><span>↳</span> Diplomado en Diseño Digital de Sonrisa</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Método -->
+  <section class="method section" id="metodo">
+    <div class="section__head">
+      <p class="eyebrow reveal">03 — Nuestro método</p>
+      <h2 class="section__title reveal">Cuatro pasos, cero<br />incertidumbre.</h2>
+    </div>
+    <div class="method__steps">
+      <div class="step reveal" style="--d:.05s">
+        <span class="step__n">01</span>
+        <h3>Valoración</h3>
+        <p>Escaneo 3D y diagnóstico completo para entender tu caso a fondo.</p>
+      </div>
+      <div class="step reveal" style="--d:.15s">
+        <span class="step__n">02</span>
+        <h3>Plan a medida</h3>
+        <p>Te presentamos opciones claras, tiempos y presupuesto sin sorpresas.</p>
+      </div>
+      <div class="step reveal" style="--d:.25s">
+        <span class="step__n">03</span>
+        <h3>Tratamiento</h3>
+        <p>Procedimientos precisos y cómodos con sedación consciente disponible.</p>
+      </div>
+      <div class="step reveal" style="--d:.35s">
+        <span class="step__n">04</span>
+        <h3>Seguimiento</h3>
+        <p>Acompañamiento postoperatorio y controles para cuidar tu resultado.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Opiniones -->
+  <section class="reviews section" id="opiniones">
+    <div class="section__head">
+      <p class="eyebrow reveal">04 — Opiniones</p>
+      <h2 class="section__title reveal">Lo que dicen<br />nuestros pacientes.</h2>
+    </div>
+    <div class="reviews__grid">
+      <figure class="quote reveal" style="--d:.05s">
+        <blockquote>"Le tenía pánico al dentista y aquí me sentí en casa. Mi implante quedó perfecto y nunca sentí dolor."</blockquote>
+        <figcaption><strong>Laura M.</strong><span>Implante unitario</span></figcaption>
+      </figure>
+      <figure class="quote reveal" style="--d:.15s">
+        <blockquote>"El diseño de sonrisa cambió mi vida. El Dr. Solís cuida cada detalle, es un verdadero artista."</blockquote>
+        <figcaption><strong>Andrés R.</strong><span>Carillas de porcelana</span></figcaption>
+      </figure>
+      <figure class="quote reveal" style="--d:.25s">
+        <blockquote>"Profesionalismo y calidez de principio a fin. La clínica es impecable y la atención inmejorable."</blockquote>
+        <figcaption><strong>Sofía G.</strong><span>Ortodoncia invisible</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Contacto / CTA -->
+  <section class="contact section" id="contacto">
+    <div class="contact__inner">
+      <div class="contact__left">
+        <p class="eyebrow reveal">05 — Agenda</p>
+        <h2 class="contact__title reveal">Tu nueva sonrisa<br />empieza con una cita.</h2>
+        <p class="reveal">Reserva una valoración sin compromiso. Te respondemos el mismo día.</p>
+        <ul class="contact__info reveal">
+          <li><span>Teléfono</span> +52 55 1234 5678</li>
+          <li><span>Correo</span> hola@solisdental.mx</li>
+          <li><span>Dirección</span> Av. Reforma 220, Piso 4, CDMX</li>
+          <li><span>Horario</span> Lun–Sáb · 9:00 – 19:00</li>
+        </ul>
+      </div>
+      <form class="contact__form reveal" data-form>
+        <label>Nombre<input type="text" name="nombre" placeholder="Tu nombre" required /></label>
+        <label>Correo<input type="email" name="email" placeholder="tu@correo.com" required /></label>
+        <label>Teléfono<input type="tel" name="tel" placeholder="55 0000 0000" /></label>
+        <label>¿Qué necesitas?
+          <select name="servicio">
+            <option>Valoración general</option>
+            <option>Implantes dentales</option>
+            <option>Estética / carillas</option>
+            <option>Ortodoncia invisible</option>
+            <option>Cirugía oral</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn--full">Solicitar cita</button>
+        <p class="contact__note" data-form-note></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__top">
+      <a href="#inicio" class="nav__brand nav__brand--lg">
+        <span class="nav__mark">◍</span>
+        <span class="nav__name">Solís<em>·</em>Dental</span>
+      </a>
+      <nav class="footer__links">
+        <a href="#servicios">Servicios</a>
+        <a href="#doctor">El Doctor</a>
+        <a href="#metodo">Método</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Solís Dental — Demo. Todos los derechos reservados.</p>
+      <p>Diseñado con cuidado · CDMX</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
