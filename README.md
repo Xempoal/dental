@@ -1,16 +1,18 @@
-# Solís Dental — Sitio web (Demo)
+# Solís · Atelier Dental — Sitio web (Demo)
 
-Sitio web estático para un cirujano dentista, construido con **HTML, CSS y JavaScript puro** (sin frameworks ni build step). Listo para desplegar en **Cloudflare Pages**.
+Sitio web estático para un cirujano dentista en **Xalapa, Veracruz**, construido con **HTML, CSS y JavaScript puro** (sin frameworks ni build step). Listo para desplegar en **Cloudflare Pages**.
 
-> ⚠️ Es un **demo**: la información, el nombre del doctor, las opiniones y las imágenes son ficticias / de stock.
+> ⚠️ Es un **demo**: el nombre del doctor, la dirección, el teléfono, las opiniones y las imágenes son ficticios / de stock.
 
 ## Características
 
-- Estética de "lujo clínico" — tipografía serif (Fraunces) + sans (Outfit)
-- Sin gradientes ni marquesinas rotativas (banda de confianza estática)
-- Transiciones y efectos modernos: revelados al hacer scroll, contadores animados, cursor personalizado, barra de progreso, micro-interacciones en hover
-- Totalmente responsive
-- Respeta `prefers-reduced-motion`
+- Estética editorial premium "atelier dental" — azul medianoche, tipografía Bodoni Moda (alto contraste) + Hanken Grotesk
+- Sin gradientes ni marquesinas rotativas
+- Lista de servicios con imagen flotante que sigue al cursor (estilo editorial)
+- Galería de fotos en mosaico, sección de método sobre fondo claro (contraste)
+- Transiciones y efectos modernos: revelados al hacer scroll, máscara clip-path en imágenes, contadores animados, cursor personalizado, barra de progreso, grano sutil
+- Totalmente responsive · respeta `prefers-reduced-motion`
+- Fallback visual si alguna imagen de stock no carga
 
 ## Estructura
 
