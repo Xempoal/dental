@@ -3,32 +3,52 @@
 const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
 const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 
+/* ─── Scroll suave (Lenis) ─── */
+let lenis = null;
+if (window.Lenis && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+  const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
+  requestAnimationFrame(raf);
+
+  // anclas internas pasan por Lenis
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length < 2) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: 0, duration: 1.4 });
+    });
+  });
+}
+const lockScroll = () => lenis ? lenis.stop() : (document.body.style.overflow = 'hidden');
+const unlockScroll = () => lenis ? lenis.start() : (document.body.style.overflow = '');
+
 /* ─── Preloader con progreso ─── */
 (() => {
   const pre = document.querySelector('[data-preloader]');
   const ring = document.querySelector('[data-ring]');
   const pct = document.querySelector('[data-pct]');
   if (!pre) return;
-  document.body.style.overflow = 'hidden';
+  lockScroll();
   const CIRC = 276.5;
   let val = 0;
   const tick = setInterval(() => {
-    val = Math.min(100, val + Math.random() * 14 + 4);
+    val = Math.min(100, val + Math.random() * 16 + 5);
     pct.textContent = Math.floor(val);
     ring.style.strokeDashoffset = CIRC * (1 - val / 100);
     if (val >= 100) {
       clearInterval(tick);
-      setTimeout(() => {
-        pre.classList.add('is-done');
-        document.body.style.overflow = '';
-      }, 450);
+      setTimeout(() => { pre.classList.add('is-done'); unlockScroll(); }, 420);
     }
-  }, 140);
+  }, 130);
 })();
 
 /* ─── Cursor personalizado ─── */
+const cursor = document.querySelector('[data-cursor]');
+const cursorTxt = document.querySelector('[data-cursor-txt]');
 (() => {
-  const cursor = document.querySelector('[data-cursor]');
   if (!cursor || !window.matchMedia('(hover: hover)').matches) return;
   let x = 0, y = 0, cx = 0, cy = 0;
   window.addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; });
@@ -37,7 +57,8 @@ const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
     cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
     requestAnimationFrame(loop);
   })();
-  document.querySelectorAll('a, button, .proc, .g').forEach(el => {
+  const hoverables = 'a, button, .proc, .g, .svcmenu__card';
+  document.querySelectorAll(hoverables).forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('is-big'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('is-big'));
   });
@@ -47,41 +68,58 @@ const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 const header = document.querySelector('[data-header]');
 let lastY = 0;
 function headerOnScroll(y) {
-  if (y > 120 && y > lastY) header.classList.add('is-hidden');
-  else header.classList.remove('is-hidden');
-  header.classList.toggle('is-bg', y > 120 && y <= lastY);
+  if (y > 120 && y > lastY + 2) header.classList.add('is-hidden');
+  else if (y < lastY - 2 || y <= 120) header.classList.remove('is-hidden');
+  header.classList.toggle('is-bg', y > 120 && y < lastY);
   lastY = y;
 }
+
+/* ─── Dropdown de servicios (desktop) ─── */
+(() => {
+  const menu = document.querySelector('[data-svcmenu]');
+  const btn = document.querySelector('[data-svcmenu-btn]');
+  if (!menu || !btn) return;
+  const open = () => menu.classList.add('is-open');
+  const close = () => menu.classList.remove('is-open');
+  btn.addEventListener('mouseenter', open);
+  btn.addEventListener('click', () => menu.classList.toggle('is-open'));
+  menu.querySelector('[data-svcmenu-close]').addEventListener('click', close);
+  menu.querySelector('[data-svcmenu-overlay]').addEventListener('click', close);
+  menu.addEventListener('mouseleave', close);
+  menu.querySelectorAll('[data-svc-go]').forEach(card => {
+    card.addEventListener('click', () => {
+      close();
+      setService(+card.dataset.svcGo);
+    });
+  });
+})();
 
 /* ─── Menú móvil overlay ─── */
 (() => {
   const menu = document.querySelector('[data-menu]');
   const burger = document.querySelector('[data-burger]');
   if (!menu || !burger) return;
-  burger.addEventListener('click', () => menu.classList.add('is-open'));
-  menu.querySelector('[data-menu-close]').addEventListener('click', () => menu.classList.remove('is-open'));
-  menu.querySelectorAll('[data-menu-link]').forEach(a =>
-    a.addEventListener('click', () => menu.classList.remove('is-open')));
+  burger.addEventListener('click', () => { menu.classList.add('is-open'); lockScroll(); });
+  const close = () => { menu.classList.remove('is-open'); unlockScroll(); };
+  menu.querySelector('[data-menu-close]').addEventListener('click', close);
+  menu.querySelectorAll('[data-menu-link]').forEach(a => a.addEventListener('click', close));
 })();
 
-/* ─── Hero: panel derecho se expande con el scroll ─── */
+/* ─── Hero: el panel derecho se expande con clip-path ─── */
 const heroWrap = document.querySelector('[data-hero]');
 const hero = heroWrap?.querySelector('.hero');
 const heroPanel = document.querySelector('[data-hero-panel]');
 const heroTitle2 = document.querySelector('[data-hero-title2]');
 function heroOnScroll(y) {
   if (!heroWrap || !isDesktop()) return;
-  const range = window.innerHeight * 0.9;               // altura del plash
-  const p = clamp(y / range, 0, 1);                     // 0 → 1
+  const range = window.innerHeight * 0.9;
+  const p = clamp(y / range, 0, 1);
   const ease = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
-  // el panel crece de 50vw a 100vw desplazándose a la izquierda
-  heroPanel.style.left = (50 - 50 * ease) + 'vw';
-  heroPanel.style.width = (50 + 50 * ease) + 'vw';
-  hero.classList.toggle('is-expanded', p > 0.6);
-  // título del panel: entra desde la derecha y sale a la izquierda
-  const tx = 60 - 130 * ease;
+  heroPanel.style.clipPath = `inset(0 0 0 ${50 - 50 * ease}%)`;
+  hero.classList.toggle('is-expanded', p > 0.55);
+  const tx = 62 - 135 * ease;
   heroTitle2.style.transform = `translate(${tx}vw, -50%)`;
-  heroTitle2.style.opacity = clamp(p * 2.4 - 0.15, 0, 1);
+  heroTitle2.style.opacity = clamp(p * 2.6 - 0.12, 0, 1);
 }
 
 /* ─── Texto que se rellena con el scroll ─── */
@@ -104,7 +142,7 @@ const svcNavBtns = document.querySelectorAll('[data-svc-nav] button');
 let svcIdx = -1;
 
 function setService(i) {
-  if (i === svcIdx) return;
+  if (i === svcIdx || i < 0 || i > 3) return;
   svcIdx = i;
   [svcImgs, svcLists, svcDescs, svcTitles, svcNavBtns].forEach(group =>
     group.forEach((el, j) => el.classList.toggle('is-active', j === i)));
@@ -120,15 +158,42 @@ function servicesOnScroll() {
 svcNavBtns.forEach((btn, i) => btn.addEventListener('click', () => setService(i)));
 setService(0);
 
-/* ─── Banner parallax ─── */
-const parallax = document.querySelector('[data-parallax]');
-function parallaxOnScroll() {
-  if (!parallax) return;
-  const r = parallax.parentElement.getBoundingClientRect();
-  if (r.bottom < 0 || r.top > window.innerHeight) return;
-  const p = (window.innerHeight - r.top) / (window.innerHeight + r.height);
-  parallax.style.transform = `translateY(${(p - 0.5) * 14}%)`;
+/* ─── Tecnología: lista sticky con contador ─── */
+const techSection = document.querySelector('[data-tech]');
+const techImgs = document.querySelectorAll('[data-tech-images] img');
+const techItems = document.querySelectorAll('[data-tech-list] .tech__item');
+const techNum = document.querySelector('[data-tech-num]');
+let techIdx = -1;
+function setTech(i) {
+  if (i === techIdx || i < 0 || i >= techItems.length) return;
+  techIdx = i;
+  techImgs.forEach((el, j) => el.classList.toggle('is-active', j === i));
+  techItems.forEach((el, j) => el.classList.toggle('is-active', j === i));
+  techNum.textContent = String(i + 1).padStart(2, '0');
 }
+function techOnScroll() {
+  if (!techSection || !isDesktop()) return;
+  const r = techSection.getBoundingClientRect();
+  const total = r.height - window.innerHeight;
+  if (total <= 0) return;
+  const p = clamp(-r.top / total, 0, 0.999);
+  setTech(Math.floor(p * techItems.length));
+}
+setTech(0);
+
+/* ─── Parallax (banner + pre-footer) ─── */
+function makeParallax(selector, amount) {
+  const el = document.querySelector(selector);
+  if (!el) return () => {};
+  return () => {
+    const r = el.parentElement.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > window.innerHeight) return;
+    const p = (window.innerHeight - r.top) / (window.innerHeight + r.height);
+    el.style.transform = `translateY(${(p - 0.5) * amount}%)`;
+  };
+}
+const bannerParallax = makeParallax('[data-parallax]', 14);
+const prefooterParallax = makeParallax('[data-parallax2]', 10);
 
 /* ─── Scroll maestro ─── */
 const progress = document.querySelector('[data-progress]');
@@ -138,7 +203,9 @@ function onScroll() {
   heroOnScroll(y);
   fillOnScroll();
   servicesOnScroll();
-  parallaxOnScroll();
+  techOnScroll();
+  bannerParallax();
+  prefooterParallax();
   const h = document.documentElement.scrollHeight - window.innerHeight;
   progress.style.transform = `scaleX(${h > 0 ? y / h : 0})`;
 }
@@ -185,28 +252,53 @@ document.querySelectorAll('[data-count]').forEach(el => ioCount.observe(el));
   })();
 })();
 
-/* ─── Testimonios: tabs con auto-avance ─── */
+/* ─── Testimonios: tabs, contador, flechas y zonas de clic ─── */
 (() => {
   const nav = document.querySelectorAll('[data-tst-nav] button');
   const slides = document.querySelectorAll('[data-tst-slides] .tst');
+  const counter = document.querySelector('[data-tst-counter]');
+  const zone = document.querySelector('[data-tst-zone]');
   if (!nav.length) return;
   let idx = 0, timer;
 
   function restartRing(btn) {
     const fg = btn.querySelector('[data-ring-fg]');
     fg.style.animation = 'none';
-    void fg.offsetWidth;            // reinicia la animación del anillo
+    void fg.offsetWidth;
     fg.style.animation = '';
   }
   function go(i) {
-    idx = i % nav.length;
+    idx = (i + nav.length) % nav.length;
     nav.forEach((b, j) => b.classList.toggle('is-active', j === idx));
     slides.forEach((s, j) => s.classList.toggle('is-active', j === idx));
+    counter.textContent = String(idx + 1).padStart(2, '0');
     restartRing(nav[idx]);
     clearInterval(timer);
     timer = setInterval(() => go(idx + 1), 6000);
   }
   nav.forEach((btn, i) => btn.addEventListener('click', () => go(i)));
+  document.querySelector('[data-tst-prev]')?.addEventListener('click', () => go(idx - 1));
+  document.querySelector('[data-tst-next]')?.addEventListener('click', () => go(idx + 1));
+
+  // zonas de clic con cursor-flecha (desktop)
+  if (zone && cursor && window.matchMedia('(hover: hover)').matches) {
+    zone.addEventListener('mousemove', e => {
+      if (!isDesktop()) return;
+      const r = zone.getBoundingClientRect();
+      const left = e.clientX < r.left + r.width / 2;
+      cursor.classList.add('is-arrow');
+      cursorTxt.textContent = left ? '←' : '→';
+    });
+    zone.addEventListener('mouseleave', () => {
+      cursor.classList.remove('is-arrow');
+      cursorTxt.textContent = '';
+    });
+    zone.addEventListener('click', e => {
+      if (!isDesktop()) return;
+      const r = zone.getBoundingClientRect();
+      e.clientX < r.left + r.width / 2 ? go(idx - 1) : go(idx + 1);
+    });
+  }
   go(0);
 })();
 
@@ -216,16 +308,25 @@ document.querySelectorAll('.pill-input input').forEach(input => {
     input.classList.toggle('has-value', input.value.trim() !== ''));
 });
 
-/* ─── Formulario (demo) ─── */
+/* ─── Formulario → modal de éxito ─── */
 (() => {
   const form = document.querySelector('[data-form]');
-  const note = document.querySelector('[data-form-note]');
-  if (!form) return;
+  const modal = document.querySelector('[data-success]');
+  if (!form || !modal) return;
+  const nameEl = document.querySelector('[data-success-name]');
   form.addEventListener('submit', e => {
     e.preventDefault();
-    const nombre = form.nombre.value.trim() || 'Gracias';
-    note.textContent = `${nombre}, recibimos tu solicitud. Te contactaremos muy pronto ✦`;
+    const nombre = form.nombre.value.trim();
+    nameEl.textContent = nombre
+      ? `${nombre}, te contactaremos muy pronto para confirmar tu valoración.`
+      : 'Te contactaremos muy pronto para confirmar tu valoración.';
+    modal.classList.add('is-open');
+    lockScroll();
     form.reset();
     form.querySelectorAll('input').forEach(i => i.classList.remove('has-value'));
+  });
+  modal.querySelector('[data-success-close]').addEventListener('click', () => {
+    modal.classList.remove('is-open');
+    unlockScroll();
   });
 })();

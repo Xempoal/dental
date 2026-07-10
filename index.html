@@ -17,6 +17,7 @@
 
   <!-- ═══ Preloader ═══ -->
   <div class="preloader" data-preloader>
+    <div class="preloader__blob" aria-hidden="true"></div>
     <div class="preloader__loader">
       <svg viewBox="0 0 100 100" class="preloader__ring">
         <circle cx="50" cy="50" r="44" />
@@ -31,7 +32,7 @@
     </div>
   </div>
 
-  <div class="cursor" data-cursor></div>
+  <div class="cursor" data-cursor><span data-cursor-txt></span></div>
   <div class="scroll-progress" data-progress></div>
 
   <!-- ═══ Header ═══ -->
@@ -41,10 +42,11 @@
       <span class="logo__txt">SOLÍS<em>atelier dental</em></span>
     </a>
     <nav class="header__nav">
-      <a href="#servicios" class="roll-link" data-text="Servicios"><span>Servicios</span><span aria-hidden="true">Servicios</span></a>
-      <a href="#doctor" class="roll-link" data-text="Doctor"><span>Doctor</span><span aria-hidden="true">Doctor</span></a>
-      <a href="#galeria" class="roll-link" data-text="Atelier"><span>Atelier</span><span aria-hidden="true">Atelier</span></a>
-      <a href="#opiniones" class="roll-link" data-text="Voces"><span>Voces</span><span aria-hidden="true">Voces</span></a>
+      <button class="roll-link header__svc-btn" data-svcmenu-btn><span>Servicios <i class="chev">⌄</i></span><span aria-hidden="true">Servicios <i class="chev">⌄</i></span></button>
+      <a href="#doctor" class="roll-link"><span>Doctor</span><span aria-hidden="true">Doctor</span></a>
+      <a href="#tecnologia" class="roll-link"><span>Tecnología</span><span aria-hidden="true">Tecnología</span></a>
+      <a href="#galeria" class="roll-link"><span>Atelier</span><span aria-hidden="true">Atelier</span></a>
+      <a href="#opiniones" class="roll-link"><span>Voces</span><span aria-hidden="true">Voces</span></a>
     </nav>
     <div class="header__right">
       <a href="tel:+522288123456" class="header__phone roll-link"><span>228 812 3456</span><span aria-hidden="true">228 812 3456</span></a>
@@ -55,6 +57,32 @@
     </div>
   </header>
 
+  <!-- ═══ Dropdown de servicios (desktop) ═══ -->
+  <div class="svcmenu" data-svcmenu>
+    <div class="svcmenu__overlay" data-svcmenu-overlay></div>
+    <div class="svcmenu__panel">
+      <button class="svcmenu__close" data-svcmenu-close>✕ Cerrar</button>
+      <div class="svcmenu__cards">
+        <a href="#servicios" class="svcmenu__card" data-svc-go="0">
+          <figure><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=500&q=70" alt="Implantología" /><span>↗</span></figure>
+          <p>Implantología</p>
+        </a>
+        <a href="#servicios" class="svcmenu__card" data-svc-go="1">
+          <figure><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=500&q=70" alt="Estética Dental" /><span>↗</span></figure>
+          <p>Estética Dental</p>
+        </a>
+        <a href="#servicios" class="svcmenu__card" data-svc-go="2">
+          <figure><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=500&q=70" alt="Cirugía Oral" /><span>↗</span></figure>
+          <p>Cirugía Oral</p>
+        </a>
+        <a href="#servicios" class="svcmenu__card" data-svc-go="3">
+          <figure><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=500&q=70" alt="Prevención" /><span>↗</span></figure>
+          <p>Prevención</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- ═══ Menú móvil ═══ -->
   <div class="menu" data-menu>
     <div class="menu__bg"></div>
@@ -63,6 +91,7 @@
       <nav class="menu__nav">
         <a href="#servicios" data-menu-link>Servicios</a>
         <a href="#doctor" data-menu-link>Doctor</a>
+        <a href="#tecnologia" data-menu-link>Tecnología</a>
         <a href="#galeria" data-menu-link>Atelier</a>
         <a href="#opiniones" data-menu-link>Voces</a>
         <a href="#contacto" data-menu-link>Contacto</a>
@@ -81,23 +110,23 @@
             <p class="hero__based-title">Ubicados en:</p>
             <a href="https://maps.google.com/?q=Xalapa+Centro" target="_blank" rel="noopener">Xalapa Centro</a>
           </div>
-          <p class="hero__desc">Diseñamos sonrisas <br /><em>tan sanas como hermosas</em></p>
         </div>
         <div class="hero__right" data-hero-panel>
           <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=1600&q=80" alt="Sonrisa radiante" class="hero__img" />
-          <h1 class="hero__right-title" data-hero-title2>El arte de la <i>sonrisa</i> perfecta</h1>
+          <h2 class="hero__right-title" data-hero-title2>El arte de la <i>sonrisa</i> perfecta</h2>
           <div class="hero__tips">
             <p>Implantología</p><p>Estética Avanzada</p><p>Cirugía Oral</p>
           </div>
         </div>
+        <span class="hero__dash" aria-hidden="true"></span>
         <div class="hero__titles hero__titles--light" aria-hidden="true">
           <p class="anim-l1">Estética</p>
           <p class="anim-l2">Dental <i>Premium</i></p>
         </div>
         <div class="hero__titles hero__titles--dark">
-          <p class="anim-l1">Estética</p>
-          <p class="anim-l2">Dental <i>Premium</i></p>
+          <h1 class="hero__h1"><span class="anim-l1">Estética</span><span class="anim-l2">Dental <i>Premium</i></span></h1>
         </div>
+        <p class="hero__desc">Diseñamos sonrisas <br /><em>tan sanas como hermosas</em></p>
         <p class="hero__video-note">Combinamos ciencia avanzada con el toque de un artista.</p>
       </section>
       <div class="hero-plash"></div>
@@ -117,7 +146,10 @@
       <div class="goal__right">
         <div class="goal__team reveal">
           <p>Más de una década de experiencia y formación continua nos permiten ofrecer un cuidado basado en precisión, honestidad y una dedicación absoluta a la excelencia.</p>
-          <div class="goal__avatar"><span>+13</span><small>años</small></div>
+          <div class="goal__avatars">
+            <div class="goal__avatar goal__avatar--img"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=200&q=60" alt="Dr. Mateo Solís" /></div>
+            <div class="goal__avatar"><span>+13</span><small>años</small></div>
+          </div>
         </div>
         <p class="goal__fill" data-fill>ofrecer odontología y estética de clase mundial mediante técnicas avanzadas, tratamientos personalizados y un nivel de servicio que hace sentir valorado a cada paciente.</p>
         <a href="#doctor" class="pill-btn"><p><span>Conócenos</span><span aria-hidden="true">Conócenos</span></p>
@@ -190,6 +222,30 @@
       <div class="services__plash">
         <div class="svc-part"></div><div class="svc-part"></div><div class="svc-part"></div><div class="svc-part"></div>
       </div>
+      <!-- versión móvil -->
+      <div class="services__mob">
+        <h2 class="services__mob-title"><i>Nuestros</i><br />Servicios</h2>
+        <div class="services__mob-card reveal">
+          <figure class="reveal-img"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=70" alt="Implantología" /></figure>
+          <p class="h-serif"><i>Implantología</i> Avanzada</p>
+          <span>Cirugía de implantes con planeación digital y titanio grado médico.</span>
+        </div>
+        <div class="services__mob-card reveal">
+          <figure class="reveal-img"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=800&q=70" alt="Estética dental" /></figure>
+          <p class="h-serif"><i>Estética</i> Dental</p>
+          <span>Carillas, blanqueamiento y diseño digital de sonrisa.</span>
+        </div>
+        <div class="services__mob-card reveal">
+          <figure class="reveal-img"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=70" alt="Cirugía oral" /></figure>
+          <p class="h-serif"><i>Cirugía</i> Oral</p>
+          <span>Procedimientos mínimamente invasivos con sedación consciente.</span>
+        </div>
+        <div class="services__mob-card reveal">
+          <figure class="reveal-img"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=800&q=70" alt="Prevención" /></figure>
+          <p class="h-serif"><i>Prevención</i> y Familia</p>
+          <span>Exámenes, limpiezas y ortodoncia para toda la familia.</span>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ Banner parallax ═══ -->
@@ -200,6 +256,35 @@
       <div class="banner__grid">
         <p class="banner__lead">Odontología moderna:</p>
         <p>Más rápida</p><p>Más precisa</p><p>Sin dolor</p>
+      </div>
+    </section>
+
+    <!-- ═══ Tecnología — lista sticky con contador ═══ -->
+    <section class="tech" id="tecnologia" data-tech>
+      <h2 class="tech__title reveal">Tecnología <i>para</i> resultados<br />excepcionales</h2>
+      <div class="tech__sticky">
+        <div class="tech__counter"><p class="tech__num h-serif" data-tech-num>01</p><p class="tech__total">/ 06</p></div>
+        <div class="tech__images" data-tech-images>
+          <img class="is-active" src="https://images.unsplash.com/photo-1583912267550-d6c2ac3196c0?auto=format&fit=crop&w=900&q=75" alt="Escáner intraoral 3D" />
+          <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=900&q=75" alt="Tomografía CBCT" />
+          <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=900&q=75" alt="Cámara intraoral" />
+          <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=900&q=75" alt="Radiografía digital" />
+          <img src="https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?auto=format&fit=crop&w=900&q=75" alt="CAD/CAM" />
+          <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=900&q=75" alt="Microscopio quirúrgico" />
+        </div>
+        <span class="tech__label">Tecnología</span>
+        <div class="tech__list" data-tech-list>
+          <div class="tech__item is-active"><span>Escáner intraoral 3D</span></div>
+          <div class="tech__item"><span>Tomografía CBCT</span></div>
+          <div class="tech__item"><span>Cámara intraoral</span></div>
+          <div class="tech__item"><span>Radiografía digital</span></div>
+          <div class="tech__item"><span>CAD/CAM mismo día</span></div>
+          <div class="tech__item"><span>Microscopio quirúrgico</span></div>
+        </div>
+      </div>
+      <div class="tech__plash">
+        <div class="tech-part"></div><div class="tech-part"></div><div class="tech-part"></div>
+        <div class="tech-part"></div><div class="tech-part"></div><div class="tech-part"></div>
       </div>
     </section>
 
@@ -227,6 +312,14 @@
       </div>
     </section>
 
+    <!-- ═══ Ticker ═══ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track" data-ticker>
+        <span>Implantología ✦ Estética Dental ✦ Cirugía Oral ✦ Prevención ✦ Diseño de Sonrisa ✦ Xalapa ✦&nbsp;</span>
+        <span>Implantología ✦ Estética Dental ✦ Cirugía Oral ✦ Prevención ✦ Diseño de Sonrisa ✦ Xalapa ✦&nbsp;</span>
+      </div>
+    </div>
+
     <!-- ═══ Galería ═══ -->
     <section class="gallery" id="galeria">
       <div class="gallery__head">
@@ -252,7 +345,7 @@
             <li><button><span class="ring"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" class="ring-bg"/><circle cx="5" cy="5" r="4" class="ring-fg" data-ring-fg/></svg></span><span class="t-name">Ortodoncia invisible</span></button></li>
           </ul>
         </div>
-        <div class="testimonials__right" data-tst-slides>
+        <div class="testimonials__right" data-tst-slides data-tst-zone>
           <div class="tst is-active">
             <p>“ Le tenía pánico al dentista y aquí me sentí en casa. Mi implante quedó perfecto y nunca sentí dolor. El consultorio se siente como un hogar. ”</p>
             <span class="tst__author">Laura M.</span>
@@ -266,12 +359,21 @@
             <span class="tst__author">Sofía G.</span>
           </div>
         </div>
+        <div class="testimonials__controls">
+          <button class="tst-arrow" data-tst-prev aria-label="Anterior">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6.5 12L3.3 8.7C2.9 8.3 2.9 7.7 3.3 7.3L6.5 4M3.1 8H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+          <p class="tst-counter"><span data-tst-counter>01</span> / 03</p>
+          <button class="tst-arrow tst-arrow--next" data-tst-next aria-label="Siguiente">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6.5 12L3.3 8.7C2.9 8.3 2.9 7.7 3.3 7.3L6.5 4M3.1 8H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+        </div>
       </div>
     </section>
 
     <!-- ═══ Pre-footer título gigante ═══ -->
     <section class="prefooter">
-      <img class="prefooter__img" src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1800&q=80" alt="" aria-hidden="true" />
+      <img class="prefooter__img" data-parallax2 src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1800&q=80" alt="" aria-hidden="true" />
       <p class="prefooter__title">
         <span class="pf-line reveal">Tu mejor</span>
         <span class="pf-line reveal" style="--d:.12s"><i>sonrisa</i> comienza <i>aquí</i></span>
@@ -294,7 +396,6 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M10 19L15.2 13.8C16.24 12.78 16.24 11.12 15.2 10.1L10 4.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
         </form>
-        <p class="form-note" data-form-note></p>
       </div>
 
       <div class="footer__cols">
@@ -312,7 +413,7 @@
           <ul>
             <li><a class="roll-link" href="#inicio"><span>Inicio</span><span aria-hidden="true">Inicio</span></a></li>
             <li><a class="roll-link" href="#doctor"><span>Doctor</span><span aria-hidden="true">Doctor</span></a></li>
-            <li><a class="roll-link" href="#galeria"><span>Atelier</span><span aria-hidden="true">Atelier</span></a></li>
+            <li><a class="roll-link" href="#tecnologia"><span>Tecnología</span><span aria-hidden="true">Tecnología</span></a></li>
             <li><a class="roll-link" href="#opiniones"><span>Voces</span><span aria-hidden="true">Voces</span></a></li>
           </ul>
         </div>
@@ -322,6 +423,17 @@
           <a href="tel:+522288123456" class="footer__tel">+52 228 812 3456</a>
           <p class="footer__hours"><span>Lun – Sáb</span> 9:00 am – 7:00 pm</p>
           <a href="https://wa.me/522281234567" class="footer__tel">WhatsApp +52 228 123 4567</a>
+          <div class="socials">
+            <a class="social" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+            </a>
+            <a class="social" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 8h2.5V5H14a4 4 0 0 0-4 4v2H7.5v3H10v7h3v-7h2.6l.4-3H13V9a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>
+            </a>
+            <a class="social" href="https://wa.me/522281234567" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="1.6"/><path d="M9 8.5c0 4 2.5 6.5 6.5 6.5l.9-1.8-2-1.2-1 .8c-1-.5-1.7-1.2-2.2-2.2l.8-1-1.2-2L9 8.5Z" fill="currentColor"/></svg>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -333,10 +445,22 @@
         </nav>
         <p class="muted">Xalapa · Veracruz · México</p>
       </div>
+
+      <!-- Modal de éxito -->
+      <div class="success" data-success>
+        <div class="success__panel">
+          <button class="success__close" data-success-close>✕</button>
+          <span class="logo__sym" style="font-size:2rem">◉</span>
+          <p class="success__title h-serif">¡Gracias! <i>Recibimos tu solicitud.</i></p>
+          <p class="success__sub" data-success-name>Te contactaremos muy pronto para confirmar tu valoración.</p>
+          <div class="success__blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+      </div>
     </footer>
 
   </main>
 
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
