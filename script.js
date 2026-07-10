@@ -112,14 +112,17 @@ const heroPanel = document.querySelector('[data-hero-panel]');
 const heroTitle2 = document.querySelector('[data-hero-title2]');
 function heroOnScroll(y) {
   if (!heroWrap || !isDesktop()) return;
-  const range = window.innerHeight * 0.9;
+  const range = window.innerHeight * 2.6;
   const p = clamp(y / range, 0, 1);
   const ease = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
   heroPanel.style.clipPath = `inset(0 0 0 ${50 - 50 * ease}%)`;
-  hero.classList.toggle('is-expanded', p > 0.55);
-  const tx = 62 - 135 * ease;
-  heroTitle2.style.transform = `translate(${tx}vw, -50%)`;
-  heroTitle2.style.opacity = clamp(p * 2.6 - 0.12, 0, 1);
+  // el título de reposo desaparece apenas empieza el scroll
+  hero.classList.toggle('is-scrolled', p > 0.04);
+  // los tips aparecen cuando la imagen ya cubre toda la pantalla
+  hero.classList.toggle('is-expanded', p > 0.92);
+  // "El arte de la sonrisa": viaja detrás de la imagen y termina centrado
+  heroTitle2.style.transform = `translate(calc(-50% + ${(1 - ease) * 70}vw), -50%)`;
+  heroTitle2.style.opacity = clamp((p - 0.12) * 1.5, 0, 1);
 }
 
 /* ─── Texto que se rellena con el scroll ─── */
@@ -130,6 +133,54 @@ function fillOnScroll() {
   const vh = window.innerHeight;
   const p = clamp((vh * 0.85 - r.top) / (r.height + vh * 0.35), 0, 1);
   fillEl.style.setProperty('--fill', (p * 100).toFixed(1) + '%');
+}
+
+/* ─── Meta: la imagen del doctor crece con el scroll ─── */
+const goalSection = document.querySelector('[data-goal]');
+const goalImg = document.querySelector('[data-goal-img]');
+function goalOnScroll() {
+  if (!goalSection || !goalImg || !isDesktop()) return;
+  const r = goalSection.getBoundingClientRect();
+  const vh = window.innerHeight;
+  const p = clamp((vh - r.top) / (r.height + vh * 0.2), 0, 1);
+  goalImg.style.transform = `scale(${0.8 + p * 0.75})`;
+}
+
+/* ─── Declaración: círculos que se encuentran, rotan y envuelven el texto ─── */
+const stSection = document.querySelector('[data-statement]');
+const stL = document.querySelector('[data-circle-l]');
+const stR = document.querySelector('[data-circle-r]');
+function statementOnScroll() {
+  if (!stSection || !isDesktop()) return;
+  const r = stSection.getBoundingClientRect();
+  const total = r.height - window.innerHeight;
+  if (total <= 0) return;
+  const p = clamp(-r.top / total, 0, 1);
+  const rad = stL.offsetWidth / 2;
+  let lx, ly = 0, rx, ry = 0, sL = 1, sR = 1, opR = 1;
+  if (p < 0.4) {
+    // fase 1: entran desde los costados hasta tocarse al centro
+    const t = p / 0.4;
+    lx = -(window.innerWidth / 2) * (1 - t) - rad * t;
+    rx = -lx;
+    sL = sR = 0.85 + 0.15 * t;
+  } else if (p < 0.7) {
+    // fase 2: rotan — uno sube y el otro baja
+    const t = (p - 0.4) / 0.3;
+    const a = t * Math.PI / 2;
+    lx = -rad * Math.cos(a); ly = -rad * Math.sin(a);
+    rx = rad * Math.cos(a); ry = rad * Math.sin(a);
+  } else {
+    // fase 3: el de abajo se desvanece, el de arriba crece y abarca el texto
+    const t = (p - 0.7) / 0.3;
+    lx = 0; ly = -rad * (1 - t);
+    rx = 0; ry = rad;
+    sL = 1 + t * 1.6;
+    opR = 1 - t * 1.8;
+  }
+  stL.style.transform = `translate(${lx}px, ${ly}px) scale(${sL})`;
+  stR.style.transform = `translate(${rx}px, ${ry}px) scale(${sR})`;
+  stR.style.opacity = clamp(opR, 0, 1);
 }
 
 /* ─── Servicios: slider controlado por scroll ─── */
@@ -202,6 +253,8 @@ function onScroll() {
   headerOnScroll(y);
   heroOnScroll(y);
   fillOnScroll();
+  goalOnScroll();
+  statementOnScroll();
   servicesOnScroll();
   techOnScroll();
   bannerParallax();

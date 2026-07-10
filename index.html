@@ -45,7 +45,6 @@
         <button class="roll-link header__svc-btn" data-svcmenu-btn><span>Servicios <i class="chev">⌄</i></span><span aria-hidden="true">Servicios <i class="chev">⌄</i></span></button>
         <a href="#doctor" class="roll-link"><span>Doctor</span><span aria-hidden="true">Doctor</span></a>
         <a href="#tecnologia" class="roll-link"><span>Tecnología</span><span aria-hidden="true">Tecnología</span></a>
-        <a href="#galeria" class="roll-link"><span>Atelier</span><span aria-hidden="true">Atelier</span></a>
       </nav>
     </div>
     <div class="header__right">
@@ -95,7 +94,6 @@
         <a href="#servicios" data-menu-link>Servicios</a>
         <a href="#doctor" data-menu-link>Doctor</a>
         <a href="#tecnologia" data-menu-link>Tecnología</a>
-        <a href="#galeria" data-menu-link>Atelier</a>
         <a href="#opiniones" data-menu-link>Voces</a>
         <a href="#contacto" data-menu-link>Contacto</a>
       </nav>
@@ -144,17 +142,14 @@
       <div class="hero-plash"></div>
     </div>
 
-    <!-- ═══ Stats ═══ -->
-    <section class="stats">
-      <div class="stats__item reveal"><strong data-count="13">0</strong><span>años de práctica</span></div>
-      <div class="stats__item reveal" style="--d:.1s"><strong data-count="3400">0</strong><span>pacientes</span></div>
-      <div class="stats__item reveal" style="--d:.2s"><strong data-count="1200">0</strong><span>implantes colocados</span></div>
-      <div class="stats__item reveal" style="--d:.3s"><strong data-count="98">0</strong><span>% satisfacción</span></div>
-    </section>
-
     <!-- ═══ Nuestra meta (texto que se rellena al scroll) ═══ -->
-    <section class="goal">
-      <div class="goal__left"><h2 class="goal__small">Nuestra meta es</h2></div>
+    <section class="goal" data-goal>
+      <div class="goal__left">
+        <h2 class="goal__small">Nuestra meta es</h2>
+        <figure class="goal__media" data-goal-img>
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=1000&q=80" alt="Dr. Mateo Solís" />
+        </figure>
+      </div>
       <div class="goal__right">
         <div class="goal__team reveal">
           <p>Más de una década de experiencia y formación continua nos permiten ofrecer un cuidado basado en precisión, honestidad y una dedicación absoluta a la excelencia.</p>
@@ -174,7 +169,7 @@
     <section class="services" id="servicios" data-services>
       <div class="services__sticky">
         <div class="services__left" data-svc-images>
-          <div class="services__img is-active"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" alt="Implantes dentales" /></div>
+          <div class="services__img is-active"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=1200&q=80" alt="Dr. Mateo Solís — implantología" /></div>
           <div class="services__img"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1200&q=80" alt="Diseño de sonrisa" /></div>
           <div class="services__img"><img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&w=1200&q=80" alt="Cirugía oral" /></div>
           <div class="services__img"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1200&q=80" alt="Prevención" /></div>
@@ -344,30 +339,19 @@
       </div>
     </section>
 
-    <!-- ═══ Galería ═══ -->
-    <section class="gallery" id="galeria">
-      <div class="gallery__head">
-        <h2 class="gallery__title reveal">El <i>atelier</i></h2>
-        <p class="gallery__sub reveal" style="--d:.1s">Un espacio diseñado para sentirte en confianza.</p>
+    <!-- ═══ Declaración (círculos interactivos) ═══ -->
+    <section class="statement" data-statement>
+      <div class="statement__sticky">
+        <span class="statement__circle statement__circle--l" data-circle-l aria-hidden="true"></span>
+        <span class="statement__circle statement__circle--r" data-circle-r aria-hidden="true"></span>
+        <span class="statement__why">¿Por qué<br />elegirnos?</span>
+        <p class="statement__text reveal">
+          <span class="st-line">Estamos <i>aquí</i></span>
+          <span class="st-line st-line--indent">para <i>realzar</i></span>
+          <span class="st-line">tu sonrisa</span>
+        </p>
       </div>
-      <div class="gallery__mosaic">
-        <figure class="g g--tall reveal-img"><img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=800&q=80" alt="Unidad dental moderna" /></figure>
-        <figure class="g reveal-img" style="--d:.08s"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80" alt="Atención al paciente" /></figure>
-        <figure class="g reveal-img" style="--d:.16s"><img src="https://images.unsplash.com/photo-1445527815219-ecbfec67492e?auto=format&fit=crop&w=800&q=80" alt="Consultorio dental" /></figure>
-        <figure class="g g--wide reveal-img" style="--d:.24s"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1100&q=80" alt="Recepción de la clínica" /></figure>
-      </div>
-    </section>
-
-    <!-- ═══ Declaración (círculos) ═══ -->
-    <section class="statement">
-      <span class="statement__circle statement__circle--l" aria-hidden="true"></span>
-      <span class="statement__circle statement__circle--r" aria-hidden="true"></span>
-      <span class="statement__why">¿Por qué<br />elegirnos?</span>
-      <p class="statement__text reveal">
-        <span class="st-line">Estamos <i>aquí</i></span>
-        <span class="st-line st-line--indent">para <i>realzar</i></span>
-        <span class="st-line">tu sonrisa</span>
-      </p>
+      <div class="statement__plash" aria-hidden="true"></div>
     </section>
 
     <!-- ═══ Testimonios con tabs ═══ -->
