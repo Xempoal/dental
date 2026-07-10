@@ -3,286 +3,339 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Atelier dental del Dr. Mateo Solís en Xalapa — Cirugía oral, implantología y diseño de sonrisa de alta especialidad." />
+  <meta name="description" content="Solís Atelier Dental en Xalapa — Odontología estética premium: implantología, cirugía oral y diseño de sonrisa." />
   <title>Solís · Atelier Dental — Xalapa</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='none' stroke='%235b8def' stroke-width='6'/></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='none' stroke='%23b38c61' stroke-width='8'/></svg>" />
 </head>
 <body>
 
-  <div class="grain"></div>
+  <!-- ═══ Preloader ═══ -->
+  <div class="preloader" data-preloader>
+    <div class="preloader__loader">
+      <svg viewBox="0 0 100 100" class="preloader__ring">
+        <circle cx="50" cy="50" r="44" />
+        <circle cx="50" cy="50" r="44" class="preloader__ring-fill" data-ring />
+      </svg>
+      <span class="preloader__pct" data-pct>0</span>
+    </div>
+    <div class="preloader__texts">
+      <p>Implantología</p>
+      <p>Estética Avanzada</p>
+      <p>Cirugía Oral</p>
+    </div>
+  </div>
+
   <div class="cursor" data-cursor></div>
   <div class="scroll-progress" data-progress></div>
 
-  <!-- Floating preview image for service list -->
-  <div class="float-preview" data-preview><img alt="" data-preview-img /></div>
-
-  <!-- Side rail -->
-  <aside class="rail rail--left">
-    <span class="rail__rot">Xalapa · Veracruz</span>
-  </aside>
-  <aside class="rail rail--right">
-    <span class="rail__rot">Est. 2012</span>
-  </aside>
-
-  <!-- Nav -->
-  <header class="nav" data-nav>
-    <a href="#inicio" class="brand">
-      <span class="brand__sym">◉</span>
-      <span class="brand__txt">SOLÍS<em>atelier dental</em></span>
+  <!-- ═══ Header ═══ -->
+  <header class="header" data-header>
+    <a href="#inicio" class="logo">
+      <span class="logo__sym">◉</span>
+      <span class="logo__txt">SOLÍS<em>atelier dental</em></span>
     </a>
-    <nav class="nav__links">
-      <a href="#servicios"><i>01</i> Servicios</a>
-      <a href="#doctor"><i>02</i> Doctor</a>
-      <a href="#galeria"><i>03</i> Galería</a>
-      <a href="#contacto"><i>04</i> Contacto</a>
+    <nav class="header__nav">
+      <a href="#servicios" class="roll-link" data-text="Servicios"><span>Servicios</span><span aria-hidden="true">Servicios</span></a>
+      <a href="#doctor" class="roll-link" data-text="Doctor"><span>Doctor</span><span aria-hidden="true">Doctor</span></a>
+      <a href="#galeria" class="roll-link" data-text="Atelier"><span>Atelier</span><span aria-hidden="true">Atelier</span></a>
+      <a href="#opiniones" class="roll-link" data-text="Voces"><span>Voces</span><span aria-hidden="true">Voces</span></a>
     </nav>
-    <a href="#contacto" class="btn btn--ghost">Reservar <span>→</span></a>
-    <button class="burger" data-burger aria-label="Menú"><span></span><span></span></button>
+    <div class="header__right">
+      <a href="tel:+522288123456" class="header__phone roll-link"><span>228 812 3456</span><span aria-hidden="true">228 812 3456</span></a>
+      <a href="#contacto" class="btn-book"><p class="btn-book__text"><span>Agendar cita</span><span aria-hidden="true">Agendar cita</span></p>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V4C7 5.65685 8.34315 7 10 7H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 13V10C7 8.34315 5.65685 7 4 7H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+      <button class="burger" data-burger aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="inicio">
-    <div class="hero__index">— Clínica de alta especialidad</div>
-    <h1 class="hero__title">
-      <span class="line"><span class="reveal-up">El arte</span></span>
-      <span class="line"><span class="reveal-up" style="--d:.08s">de la</span> <em class="reveal-up" style="--d:.16s">sonrisa</em></span>
-      <span class="line"><span class="reveal-up" style="--d:.24s">perfecta.</span></span>
-    </h1>
-    <div class="hero__bottom">
-      <figure class="hero__photo reveal-img">
-        <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=1100&q=80" alt="Sonrisa radiante" onerror="this.parentNode.classList.add('img-fail')" />
-      </figure>
-      <div class="hero__aside reveal" style="--d:.4s">
-        <p>Implantología, cirugía oral y diseño digital de sonrisa en un espacio
-          pensado para tu calma. Tecnología de precisión, manos expertas.</p>
-        <a href="#servicios" class="btn">Ver tratamientos <span>→</span></a>
-        <div class="hero__rate">
-          <strong>4.9</strong>
-          <span class="stars">★★★★★</span>
-          <span class="hero__rate-txt">+640 reseñas verificadas en Xalapa</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats band (dark) -->
-  <section class="stats">
-    <div class="stats__item reveal"><strong data-count="13">0</strong><span>años de práctica</span></div>
-    <div class="stats__rule"></div>
-    <div class="stats__item reveal" style="--d:.1s"><strong data-count="3400">0</strong><span>pacientes</span></div>
-    <div class="stats__rule"></div>
-    <div class="stats__item reveal" style="--d:.2s"><strong data-count="1200">0</strong><span>implantes colocados</span></div>
-    <div class="stats__rule"></div>
-    <div class="stats__item reveal" style="--d:.3s"><strong data-count="98">0</strong><span>% satisfacción</span></div>
-  </section>
-
-  <!-- Servicios — editorial hover list -->
-  <section class="services" id="servicios">
-    <div class="sec-head">
-      <span class="sec-num">01</span>
-      <h2 class="sec-title reveal">Especialidades</h2>
-      <p class="sec-sub reveal" style="--d:.1s">Cada tratamiento, una obra de precisión.</p>
-    </div>
-    <ul class="svc-list" data-svc>
-      <li class="svc" data-img="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=700&q=80">
-        <span class="svc__n">01</span>
-        <span class="svc__name">Implantes dentales</span>
-        <span class="svc__desc">Titanio grado médico · cirugía guiada 3D</span>
-        <span class="svc__arr">→</span>
-      </li>
-      <li class="svc" data-img="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=700&q=80">
-        <span class="svc__n">02</span>
-        <span class="svc__name">Diseño de sonrisa</span>
-        <span class="svc__desc">Carillas de porcelana · estética facial</span>
-        <span class="svc__arr">→</span>
-      </li>
-      <li class="svc" data-img="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80">
-        <span class="svc__n">03</span>
-        <span class="svc__name">Cirugía oral</span>
-        <span class="svc__desc">Mínimamente invasiva · sedación consciente</span>
-        <span class="svc__arr">→</span>
-      </li>
-      <li class="svc" data-img="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=700&q=80">
-        <span class="svc__n">04</span>
-        <span class="svc__name">Ortodoncia invisible</span>
-        <span class="svc__desc">Alineadores transparentes a medida</span>
-        <span class="svc__arr">→</span>
-      </li>
-      <li class="svc" data-img="https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?auto=format&fit=crop&w=700&q=80">
-        <span class="svc__n">05</span>
-        <span class="svc__name">Endodoncia</span>
-        <span class="svc__desc">Microscopía · tratamientos indoloros</span>
-        <span class="svc__arr">→</span>
-      </li>
-      <li class="svc" data-img="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=700&q=80">
-        <span class="svc__n">06</span>
-        <span class="svc__name">Odontopediatría</span>
-        <span class="svc__desc">Atención cálida para los más pequeños</span>
-        <span class="svc__arr">→</span>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Doctor -->
-  <section class="doctor" id="doctor">
-    <div class="doctor__media reveal-img">
-      <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=850&q=80" alt="Dr. Mateo Solís" onerror="this.parentNode.classList.add('img-fail')" />
-    </div>
-    <div class="doctor__body">
-      <span class="sec-num">02</span>
-      <h2 class="sec-title reveal">Dr. Mateo Solís</h2>
-      <p class="doctor__role reveal" style="--d:.05s">Cirujano dentista · Cirugía oral y maxilofacial</p>
-      <p class="reveal" style="--d:.1s">
-        Con más de trece años perfeccionando la implantología avanzada, el Dr. Solís
-        dirige un atelier donde la ciencia y la estética se encuentran. Cada caso se
-        planifica digitalmente, con honestidad y sin dolor.
-      </p>
-      <ul class="doctor__creds reveal" style="--d:.15s">
-        <li><b>Especialidad</b> Cirugía Oral y Maxilofacial — UNAM</li>
-        <li><b>Certificación</b> Implantología Avanzada · ITI</li>
-        <li><b>Membresía</b> Colegio de Cirujanos Dentistas de México</li>
-        <li><b>Diplomado</b> Diseño Digital de Sonrisa (DSD)</li>
-      </ul>
-      <div class="doctor__sign-row reveal" style="--d:.2s">
-        <span class="doctor__sign">Mateo Solís</span>
-        <span class="doctor__sign-sub">Director clínico</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Método -->
-  <section class="method">
-    <div class="sec-head sec-head--center">
-      <span class="sec-num">03</span>
-      <h2 class="sec-title reveal">El proceso</h2>
-    </div>
-    <div class="method__grid">
-      <div class="mstep reveal"><b>01</b><h3>Valoración</h3><p>Escaneo 3D y diagnóstico completo de tu caso.</p></div>
-      <div class="mstep reveal" style="--d:.1s"><b>02</b><h3>Plan a medida</h3><p>Opciones claras, tiempos y presupuesto transparente.</p></div>
-      <div class="mstep reveal" style="--d:.2s"><b>03</b><h3>Tratamiento</h3><p>Procedimientos precisos con la mayor comodidad.</p></div>
-      <div class="mstep reveal" style="--d:.3s"><b>04</b><h3>Seguimiento</h3><p>Acompañamiento y controles para tu resultado.</p></div>
-    </div>
-  </section>
-
-  <!-- Galería -->
-  <section class="gallery" id="galeria">
-    <div class="sec-head">
-      <span class="sec-num">04</span>
-      <h2 class="sec-title reveal">El atelier</h2>
-      <p class="sec-sub reveal" style="--d:.1s">Un espacio diseñado para sentirte en confianza.</p>
-    </div>
-    <div class="gallery__mosaic">
-      <figure class="g g--tall reveal-img">
-        <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=800&q=80" alt="Unidad dental moderna" onerror="this.parentNode.classList.add('img-fail')" />
-      </figure>
-      <figure class="g reveal-img" style="--d:.08s">
-        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80" alt="Atención al paciente" onerror="this.parentNode.classList.add('img-fail')" />
-      </figure>
-      <figure class="g reveal-img" style="--d:.16s">
-        <img src="https://images.unsplash.com/photo-1583912267550-d6c2ac3196c0?auto=format&fit=crop&w=800&q=80" alt="Instrumental de precisión" onerror="this.parentNode.classList.add('img-fail')" />
-      </figure>
-      <figure class="g g--wide reveal-img" style="--d:.24s">
-        <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1100&q=80" alt="Recepción de la clínica" onerror="this.parentNode.classList.add('img-fail')" />
-      </figure>
-    </div>
-  </section>
-
-  <!-- Opiniones -->
-  <section class="reviews" id="opiniones">
-    <div class="sec-head sec-head--center">
-      <span class="sec-num">05</span>
-      <h2 class="sec-title reveal">Voces</h2>
-    </div>
-    <div class="reviews__grid">
-      <figure class="quote reveal">
-        <p class="quote__mark">”</p>
-        <blockquote>Le tenía pánico al dentista y aquí me sentí en casa. Mi implante quedó perfecto y nunca sentí dolor.</blockquote>
-        <figcaption><b>Laura M.</b><span>Implante unitario</span></figcaption>
-      </figure>
-      <figure class="quote reveal" style="--d:.1s">
-        <p class="quote__mark">”</p>
-        <blockquote>El diseño de sonrisa cambió mi vida. El Dr. Solís cuida cada detalle, es un verdadero artista.</blockquote>
-        <figcaption><b>Andrés R.</b><span>Carillas de porcelana</span></figcaption>
-      </figure>
-      <figure class="quote reveal" style="--d:.2s">
-        <p class="quote__mark">”</p>
-        <blockquote>Profesionalismo y calidez de principio a fin. La clínica más impecable de Xalapa.</blockquote>
-        <figcaption><b>Sofía G.</b><span>Ortodoncia invisible</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- Contacto -->
-  <section class="contact" id="contacto">
-    <div class="contact__head">
-      <span class="sec-num">06</span>
-      <h2 class="contact__title reveal">Agenda tu<br /><em>valoración</em></h2>
-    </div>
-    <div class="contact__cols">
-      <div class="contact__info reveal">
-        <div class="ci">
-          <span class="ci__label">Dirección</span>
-          <p>Av. Manuel Ávila Camacho 145<br />Col. Centro, 91000<br />Xalapa-Enríquez, Veracruz</p>
-        </div>
-        <div class="ci">
-          <span class="ci__label">Teléfono</span>
-          <p><a href="tel:+522288123456">+52 228 812 3456</a></p>
-        </div>
-        <div class="ci">
-          <span class="ci__label">WhatsApp</span>
-          <p><a href="https://wa.me/522281234567">+52 228 123 4567</a></p>
-        </div>
-        <div class="ci">
-          <span class="ci__label">Correo</span>
-          <p><a href="mailto:hola@solisatelier.mx">hola@solisatelier.mx</a></p>
-        </div>
-        <div class="ci">
-          <span class="ci__label">Horario</span>
-          <p>Lun – Sáb · 9:00 – 19:00</p>
-        </div>
-      </div>
-      <form class="contact__form reveal" style="--d:.1s" data-form>
-        <label>Nombre<input type="text" name="nombre" placeholder="Tu nombre completo" required /></label>
-        <label>Correo<input type="email" name="email" placeholder="tu@correo.com" required /></label>
-        <label>Teléfono<input type="tel" name="tel" placeholder="228 000 0000" /></label>
-        <label>Tratamiento de interés
-          <select name="servicio">
-            <option>Valoración general</option>
-            <option>Implantes dentales</option>
-            <option>Diseño de sonrisa</option>
-            <option>Ortodoncia invisible</option>
-            <option>Cirugía oral</option>
-          </select>
-        </label>
-        <button type="submit" class="btn btn--full">Solicitar cita <span>→</span></button>
-        <p class="form-note" data-form-note></p>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <a href="#inicio" class="brand brand--lg">
-      <span class="brand__sym">◉</span>
-      <span class="brand__txt">SOLÍS<em>atelier dental</em></span>
-    </a>
-    <p class="footer__claim">El arte de la sonrisa perfecta, en el corazón de Xalapa.</p>
-    <div class="footer__bottom">
-      <span>© 2026 Solís Atelier Dental — Demo</span>
-      <nav>
-        <a href="#servicios">Servicios</a>
-        <a href="#doctor">Doctor</a>
-        <a href="#contacto">Contacto</a>
+  <!-- ═══ Menú móvil ═══ -->
+  <div class="menu" data-menu>
+    <div class="menu__bg"></div>
+    <div class="menu__content">
+      <button class="menu__close" data-menu-close>Cerrar ✕</button>
+      <nav class="menu__nav">
+        <a href="#servicios" data-menu-link>Servicios</a>
+        <a href="#doctor" data-menu-link>Doctor</a>
+        <a href="#galeria" data-menu-link>Atelier</a>
+        <a href="#opiniones" data-menu-link>Voces</a>
+        <a href="#contacto" data-menu-link>Contacto</a>
       </nav>
-      <span>Xalapa · Veracruz · México</span>
+      <p class="menu__foot">Xalapa · Veracruz · Est. 2012</p>
     </div>
-  </footer>
+  </div>
+
+  <main id="inicio">
+
+    <!-- ═══ Hero sticky con expansión ═══ -->
+    <div class="hero-wrap" data-hero>
+      <section class="hero">
+        <div class="hero__left">
+          <div class="hero__based">
+            <p class="hero__based-title">Ubicados en:</p>
+            <a href="https://maps.google.com/?q=Xalapa+Centro" target="_blank" rel="noopener">Xalapa Centro</a>
+          </div>
+          <p class="hero__desc">Diseñamos sonrisas <br /><em>tan sanas como hermosas</em></p>
+        </div>
+        <div class="hero__right" data-hero-panel>
+          <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=1600&q=80" alt="Sonrisa radiante" class="hero__img" />
+          <h1 class="hero__right-title" data-hero-title2>El arte de la <i>sonrisa</i> perfecta</h1>
+          <div class="hero__tips">
+            <p>Implantología</p><p>Estética Avanzada</p><p>Cirugía Oral</p>
+          </div>
+        </div>
+        <div class="hero__titles hero__titles--light" aria-hidden="true">
+          <p class="anim-l1">Estética</p>
+          <p class="anim-l2">Dental <i>Premium</i></p>
+        </div>
+        <div class="hero__titles hero__titles--dark">
+          <p class="anim-l1">Estética</p>
+          <p class="anim-l2">Dental <i>Premium</i></p>
+        </div>
+        <p class="hero__video-note">Combinamos ciencia avanzada con el toque de un artista.</p>
+      </section>
+      <div class="hero-plash"></div>
+    </div>
+
+    <!-- ═══ Stats ═══ -->
+    <section class="stats">
+      <div class="stats__item reveal"><strong data-count="13">0</strong><span>años de práctica</span></div>
+      <div class="stats__item reveal" style="--d:.1s"><strong data-count="3400">0</strong><span>pacientes</span></div>
+      <div class="stats__item reveal" style="--d:.2s"><strong data-count="1200">0</strong><span>implantes colocados</span></div>
+      <div class="stats__item reveal" style="--d:.3s"><strong data-count="98">0</strong><span>% satisfacción</span></div>
+    </section>
+
+    <!-- ═══ Nuestra meta (texto que se rellena al scroll) ═══ -->
+    <section class="goal">
+      <div class="goal__left"><h2 class="goal__small">Nuestra meta es</h2></div>
+      <div class="goal__right">
+        <div class="goal__team reveal">
+          <p>Más de una década de experiencia y formación continua nos permiten ofrecer un cuidado basado en precisión, honestidad y una dedicación absoluta a la excelencia.</p>
+          <div class="goal__avatar"><span>+13</span><small>años</small></div>
+        </div>
+        <p class="goal__fill" data-fill>ofrecer odontología y estética de clase mundial mediante técnicas avanzadas, tratamientos personalizados y un nivel de servicio que hace sentir valorado a cada paciente.</p>
+        <a href="#doctor" class="pill-btn"><p><span>Conócenos</span><span aria-hidden="true">Conócenos</span></p>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V4C7 5.65685 8.34315 7 10 7H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 13V10C7 8.34315 5.65685 7 4 7H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══ Servicios — slider sticky ═══ -->
+    <section class="services" id="servicios" data-services>
+      <div class="services__sticky">
+        <div class="services__left" data-svc-images>
+          <div class="services__img is-active"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" alt="Implantes dentales" /></div>
+          <div class="services__img"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1200&q=80" alt="Diseño de sonrisa" /></div>
+          <div class="services__img"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80" alt="Cirugía oral" /></div>
+          <div class="services__img"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1200&q=80" alt="Prevención" /></div>
+        </div>
+        <div class="services__right">
+          <span class="services__label">Nuestras soluciones:</span>
+          <div class="services__lists" data-svc-lists>
+            <ul class="is-active">
+              <li><button class="proc"><span>Implantes unitarios</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              <li><button class="proc"><span>Cirugía guiada 3D</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              <li><button class="proc"><span>Rehabilitación total</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              <li><button class="proc"><span>Injerto óseo</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+            </ul>
+            <ul>
+              <li><button class="proc"><span>Carillas de porcelana</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              <li><button class="proc"><span>Blanqueamiento</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              <li><button class="proc"><span>Contorneado estético</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              <li><button class="proc"><span>Diseño digital DSD</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+            </ul>
+            <ul>
+              <li><button class="proc"><span>Extracciones complejas</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              <li><button class="proc"><span>Terceros molares</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              <li><button class="proc"><span>Sedación consciente</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              <li><button class="proc"><span>Patología oral</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+            </ul>
+            <ul>
+              <li><button class="proc"><span>Limpieza profunda</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              <li><button class="proc"><span>Exámenes integrales</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              <li><button class="proc"><span>Ortodoncia invisible</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              <li><button class="proc"><span>Odontopediatría</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+            </ul>
+          </div>
+          <div class="services__descs" data-svc-descs>
+            <p class="is-active">Cirugía de implantes con planeación digital: titanio grado médico y resultados que se sienten como dientes naturales.</p>
+            <p>Desde blanqueamiento hasta transformaciones completas, usamos técnicas de vanguardia para crear resultados naturales y deslumbrantes.</p>
+            <p>Procedimientos quirúrgicos mínimamente invasivos con la mayor comodidad y una recuperación más rápida.</p>
+            <p>Exámenes, limpiezas y controles diseñados para mantener tu salud oral y prevenir problemas antes de que aparezcan.</p>
+          </div>
+        </div>
+        <div class="services__titles" data-svc-titles>
+          <p class="is-active"><i>Implantología</i><br />Avanzada</p>
+          <p><i>Estética</i><br />Dental</p>
+          <p><i>Cirugía</i><br />Oral</p>
+          <p><i>Prevención</i><br />y Familia</p>
+        </div>
+        <aside class="services__nav" data-svc-nav>
+          <span class="services__nav-label">Servicios:</span>
+          <button class="is-active">Implantología</button>
+          <button>Estética Dental</button>
+          <button>Cirugía Oral</button>
+          <button>Prevención</button>
+        </aside>
+        <a href="#contacto" class="pill-btn services__more"><p><span>Saber más</span><span aria-hidden="true">Saber más</span></p>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V4C7 5.65685 8.34315 7 10 7H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 13V10C7 8.34315 5.65685 7 4 7H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+      <div class="services__plash">
+        <div class="svc-part"></div><div class="svc-part"></div><div class="svc-part"></div><div class="svc-part"></div>
+      </div>
+    </section>
+
+    <!-- ═══ Banner parallax ═══ -->
+    <section class="banner">
+      <div class="banner__bg" data-parallax>
+        <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=1800&q=80" alt="Clínica moderna" />
+      </div>
+      <div class="banner__grid">
+        <p class="banner__lead">Odontología moderna:</p>
+        <p>Más rápida</p><p>Más precisa</p><p>Sin dolor</p>
+      </div>
+    </section>
+
+    <!-- ═══ Doctor + typewriter ═══ -->
+    <section class="doctor" id="doctor">
+      <div class="doctor__media reveal-img">
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=900&q=80" alt="Dr. Mateo Solís" />
+      </div>
+      <div class="doctor__body">
+        <span class="sec-num">— El especialista</span>
+        <h2 class="doctor__name reveal">Dr. Mateo <i>Solís</i></h2>
+        <p class="doctor__role reveal" style="--d:.05s">Cirujano dentista · Cirugía oral y maxilofacial</p>
+        <p class="doctor__bio reveal" style="--d:.1s">
+          Con más de trece años perfeccionando la implantología avanzada, el Dr. Solís
+          dirige un atelier donde la ciencia y la estética se encuentran. Cada caso se
+          planifica digitalmente, con honestidad y sin dolor.
+        </p>
+        <ul class="doctor__creds reveal" style="--d:.15s">
+          <li><b>Especialidad</b> Cirugía Oral y Maxilofacial — UNAM</li>
+          <li><b>Certificación</b> Implantología Avanzada · ITI</li>
+          <li><b>Membresía</b> Colegio de Cirujanos Dentistas de México</li>
+          <li><b>Diplomado</b> Diseño Digital de Sonrisa (DSD)</li>
+        </ul>
+        <p class="doctor__type h-serif">Dedicados a brindarte<br /><span class="typewriter"><span data-typewriter></span><i class="caret"></i></span></p>
+      </div>
+    </section>
+
+    <!-- ═══ Galería ═══ -->
+    <section class="gallery" id="galeria">
+      <div class="gallery__head">
+        <h2 class="gallery__title reveal">El <i>atelier</i></h2>
+        <p class="gallery__sub reveal" style="--d:.1s">Un espacio diseñado para sentirte en confianza.</p>
+      </div>
+      <div class="gallery__mosaic">
+        <figure class="g g--tall reveal-img"><img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=800&q=80" alt="Unidad dental moderna" /></figure>
+        <figure class="g reveal-img" style="--d:.08s"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80" alt="Atención al paciente" /></figure>
+        <figure class="g reveal-img" style="--d:.16s"><img src="https://images.unsplash.com/photo-1583912267550-d6c2ac3196c0?auto=format&fit=crop&w=800&q=80" alt="Instrumental de precisión" /></figure>
+        <figure class="g g--wide reveal-img" style="--d:.24s"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1100&q=80" alt="Recepción de la clínica" /></figure>
+      </div>
+    </section>
+
+    <!-- ═══ Testimonios con tabs ═══ -->
+    <section class="testimonials" id="opiniones" data-testimonials>
+      <div class="testimonials__inner">
+        <div class="testimonials__left">
+          <span class="testimonials__label">Voces</span>
+          <ul class="testimonials__names" data-tst-nav>
+            <li><button class="is-active"><span class="ring"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" class="ring-bg"/><circle cx="5" cy="5" r="4" class="ring-fg" data-ring-fg/></svg></span><span class="t-name">Implante unitario</span></button></li>
+            <li><button><span class="ring"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" class="ring-bg"/><circle cx="5" cy="5" r="4" class="ring-fg" data-ring-fg/></svg></span><span class="t-name">Carillas de porcelana</span></button></li>
+            <li><button><span class="ring"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" class="ring-bg"/><circle cx="5" cy="5" r="4" class="ring-fg" data-ring-fg/></svg></span><span class="t-name">Ortodoncia invisible</span></button></li>
+          </ul>
+        </div>
+        <div class="testimonials__right" data-tst-slides>
+          <div class="tst is-active">
+            <p>“ Le tenía pánico al dentista y aquí me sentí en casa. Mi implante quedó perfecto y nunca sentí dolor. El consultorio se siente como un hogar. ”</p>
+            <span class="tst__author">Laura M.</span>
+          </div>
+          <div class="tst">
+            <p>“ El diseño de sonrisa cambió mi vida. El Dr. Solís cuida cada detalle, es un verdadero artista. Si buscas calidad, honestidad y confianza, no lo dudes. ”</p>
+            <span class="tst__author">Andrés R.</span>
+          </div>
+          <div class="tst">
+            <p>“ Profesionalismo y calidez de principio a fin. Todo se explicó con claridad y salí sintiéndome cuidada. La clínica más impecable de Xalapa. ”</p>
+            <span class="tst__author">Sofía G.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Pre-footer título gigante ═══ -->
+    <section class="prefooter">
+      <img class="prefooter__img" src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1800&q=80" alt="" aria-hidden="true" />
+      <p class="prefooter__title">
+        <span class="pf-line reveal">Tu mejor</span>
+        <span class="pf-line reveal" style="--d:.12s"><i>sonrisa</i> comienza <i>aquí</i></span>
+      </p>
+      <span class="prefooter__tip">Odontología estética premium · Xalapa</span>
+    </section>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="footer" id="contacto">
+      <div class="footer__circle" aria-hidden="true"></div>
+      <a href="#inicio" class="logo logo--big"><span class="logo__sym">◉</span><span class="logo__txt">SOLÍS<em>atelier dental</em></span></a>
+
+      <div class="footer__cta">
+        <p class="footer__form-title">¿Listo para transformar tu sonrisa? <i>Agenda tu valoración.</i></p>
+        <form class="footer__form" data-form>
+          <label class="pill-input"><input type="text" name="nombre" required /><span>Nombre</span></label>
+          <label class="pill-input"><input type="tel" name="tel" required /><span>Teléfono</span></label>
+          <label class="pill-input pill-input--wide"><input type="text" name="mensaje" /><span>Mensaje</span></label>
+          <button type="submit" class="footer__send" aria-label="Enviar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M10 19L15.2 13.8C16.24 12.78 16.24 11.12 15.2 10.1L10 4.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </form>
+        <p class="form-note" data-form-note></p>
+      </div>
+
+      <div class="footer__cols">
+        <div>
+          <span class="footer__colname">Servicios</span>
+          <ul>
+            <li><a class="roll-link" href="#servicios"><span>Implantología</span><span aria-hidden="true">Implantología</span></a></li>
+            <li><a class="roll-link" href="#servicios"><span>Estética Dental</span><span aria-hidden="true">Estética Dental</span></a></li>
+            <li><a class="roll-link" href="#servicios"><span>Cirugía Oral</span><span aria-hidden="true">Cirugía Oral</span></a></li>
+            <li><a class="roll-link" href="#servicios"><span>Prevención</span><span aria-hidden="true">Prevención</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer__colname">La clínica</span>
+          <ul>
+            <li><a class="roll-link" href="#inicio"><span>Inicio</span><span aria-hidden="true">Inicio</span></a></li>
+            <li><a class="roll-link" href="#doctor"><span>Doctor</span><span aria-hidden="true">Doctor</span></a></li>
+            <li><a class="roll-link" href="#galeria"><span>Atelier</span><span aria-hidden="true">Atelier</span></a></li>
+            <li><a class="roll-link" href="#opiniones"><span>Voces</span><span aria-hidden="true">Voces</span></a></li>
+          </ul>
+        </div>
+        <div class="footer__loc">
+          <span class="footer__colname">Ubicación</span>
+          <p class="footer__addr">Av. Manuel Ávila Camacho 145<br />Col. Centro, 91000<br />Xalapa-Enríquez, Veracruz</p>
+          <a href="tel:+522288123456" class="footer__tel">+52 228 812 3456</a>
+          <p class="footer__hours"><span>Lun – Sáb</span> 9:00 am – 7:00 pm</p>
+          <a href="https://wa.me/522281234567" class="footer__tel">WhatsApp +52 228 123 4567</a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p><span class="muted">© 2026</span> Solís Atelier Dental — Demo</p>
+        <nav>
+          <a class="roll-link" href="#"><span>Aviso de privacidad</span><span aria-hidden="true">Aviso de privacidad</span></a>
+          <a class="roll-link" href="#"><span>Términos</span><span aria-hidden="true">Términos</span></a>
+        </nav>
+        <p class="muted">Xalapa · Veracruz · México</p>
+      </div>
+    </footer>
+
+  </main>
 
   <script src="script.js"></script>
 </body>
