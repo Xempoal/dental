@@ -135,22 +135,23 @@ function fillOnScroll() {
   fillEl.style.setProperty('--fill', (p * 100).toFixed(1) + '%');
 }
 
-/* ─── Meta: la imagen del doctor crece con el scroll ─── */
-const goalSection = document.querySelector('[data-goal]');
-const goalImg = document.querySelector('[data-goal-img]');
-function goalOnScroll() {
-  if (!goalSection || !goalImg || !isDesktop()) return;
-  const r = goalSection.getBoundingClientRect();
+/* ─── Imagen única doctor: crece y se acopla sobre la 1ª lámina de servicios ─── */
+const introImg = document.querySelector('[data-goal-img]');
+function introOnScroll() {
+  if (!introImg || !svcSection || !isDesktop()) return;
+  const r = svcSection.getBoundingClientRect();
   const vh = window.innerHeight, vw = window.innerWidth;
-  // p = 1 justo cuando el bloque de servicios (abajo) alcanza el borde inferior
-  const p = clamp((vh - r.top) / r.height, 0, 1);
+  // p = 0 cuando servicios está a 1.5 pantallas; p = 1 justo al fijarse (top = 0)
+  const p = clamp(1 - r.top / (vh * 1.5), 0, 1);
   const ease = p * p * (3 - 2 * p);
   const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
   const w0 = 24 * rem, h0 = 30 * rem;
-  goalImg.style.width = `${w0 + (vw / 2 - w0) * ease}px`;
-  goalImg.style.height = `${h0 + (vh * 0.85 - h0) * ease}px`;
-  goalImg.style.transform = `translateX(${-2 * rem * ease}px)`;
-  goalImg.style.borderRadius = `${(1 - ease)}rem`;
+  introImg.style.width = `${w0 + (vw / 2 - w0) * ease}px`;
+  introImg.style.height = `${h0 + (vh - h0) * ease}px`;
+  introImg.style.transform = `translate(${2 * rem * (1 - ease)}px, ${-(1 - ease) * vh * 0.55}px)`;
+  introImg.style.borderRadius = `${1 - ease}rem`;
+  // al quedar fijo el bloque, la lámina 1 (misma foto, misma posición) toma el relevo
+  introImg.style.opacity = clamp(1 + (r.top + vh * 0.05) / (vh * 0.1), 0, 1);
 }
 
 /* ─── Declaración: círculos que se encuentran, rotan y envuelven el texto ─── */
@@ -260,7 +261,7 @@ function onScroll() {
   headerOnScroll(y);
   heroOnScroll(y);
   fillOnScroll();
-  goalOnScroll();
+  introOnScroll();
   statementOnScroll();
   servicesOnScroll();
   techOnScroll();

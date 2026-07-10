@@ -143,13 +143,8 @@
     </div>
 
     <!-- ═══ Nuestra meta (texto que se rellena al scroll) ═══ -->
-    <section class="goal" data-goal>
-      <div class="goal__left">
-        <h2 class="goal__small">Nuestra meta es</h2>
-        <figure class="goal__media" data-goal-img>
-          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=1000&q=80" alt="Dr. Mateo Solís" />
-        </figure>
-      </div>
+    <section class="goal">
+      <div class="goal__left"><h2 class="goal__small">Nuestra meta es</h2></div>
       <div class="goal__right">
         <div class="goal__team reveal">
           <p>Más de una década de experiencia y formación continua nos permiten ofrecer un cuidado basado en precisión, honestidad y una dedicación absoluta a la excelencia.</p>
@@ -167,6 +162,10 @@
 
     <!-- ═══ Servicios — slider sticky ═══ -->
     <section class="services" id="servicios" data-services>
+      <!-- una sola imagen: crece durante "Nuestra meta" y se acopla sobre la primera lámina -->
+      <figure class="services__intro" data-goal-img aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=1200&q=80" alt="" />
+      </figure>
       <div class="services__sticky">
         <div class="services__left" data-svc-images>
           <div class="services__img is-active"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=1200&q=80" alt="Dr. Mateo Solís — implantología" /></div>
