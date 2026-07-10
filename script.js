@@ -141,9 +141,16 @@ const goalImg = document.querySelector('[data-goal-img]');
 function goalOnScroll() {
   if (!goalSection || !goalImg || !isDesktop()) return;
   const r = goalSection.getBoundingClientRect();
-  const vh = window.innerHeight;
-  const p = clamp((vh - r.top) / (r.height + vh * 0.2), 0, 1);
-  goalImg.style.transform = `scale(${0.8 + p * 0.75})`;
+  const vh = window.innerHeight, vw = window.innerWidth;
+  // p = 1 justo cuando el bloque de servicios (abajo) alcanza el borde inferior
+  const p = clamp((vh - r.top) / r.height, 0, 1);
+  const ease = p * p * (3 - 2 * p);
+  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+  const w0 = 24 * rem, h0 = 30 * rem;
+  goalImg.style.width = `${w0 + (vw / 2 - w0) * ease}px`;
+  goalImg.style.height = `${h0 + (vh * 0.85 - h0) * ease}px`;
+  goalImg.style.transform = `translateX(${-2 * rem * ease}px)`;
+  goalImg.style.borderRadius = `${(1 - ease)}rem`;
 }
 
 /* ─── Declaración: círculos que se encuentran, rotan y envuelven el texto ─── */
