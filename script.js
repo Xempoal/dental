@@ -137,6 +137,7 @@ const svcSection = document.querySelector('[data-services]');
 const svcImgs = document.querySelectorAll('[data-svc-images] .services__img');
 const svcLists = document.querySelectorAll('[data-svc-lists] ul');
 const svcDescs = document.querySelectorAll('[data-svc-descs] p');
+const svcThumbs = document.querySelectorAll('[data-svc-thumbs] img');
 const svcTitles = document.querySelectorAll('[data-svc-titles] p');
 const svcNavBtns = document.querySelectorAll('[data-svc-nav] button');
 let svcIdx = -1;
@@ -144,7 +145,7 @@ let svcIdx = -1;
 function setService(i) {
   if (i === svcIdx || i < 0 || i > 3) return;
   svcIdx = i;
-  [svcImgs, svcLists, svcDescs, svcTitles, svcNavBtns].forEach(group =>
+  [svcImgs, svcLists, svcDescs, svcThumbs, svcTitles, svcNavBtns].forEach(group =>
     group.forEach((el, j) => el.classList.toggle('is-active', j === i)));
 }
 function servicesOnScroll() {
@@ -196,7 +197,6 @@ const bannerParallax = makeParallax('[data-parallax]', 14);
 const prefooterParallax = makeParallax('[data-parallax2]', 10);
 
 /* ─── Scroll maestro ─── */
-const progress = document.querySelector('[data-progress]');
 function onScroll() {
   const y = window.scrollY;
   headerOnScroll(y);
@@ -206,8 +206,6 @@ function onScroll() {
   techOnScroll();
   bannerParallax();
   prefooterParallax();
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  progress.style.transform = `scaleX(${h > 0 ? y / h : 0})`;
 }
 window.addEventListener('scroll', onScroll, { passive: true });
 window.addEventListener('resize', onScroll);

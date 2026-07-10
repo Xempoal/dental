@@ -33,25 +33,28 @@
   </div>
 
   <div class="cursor" data-cursor><span data-cursor-txt></span></div>
-  <div class="scroll-progress" data-progress></div>
 
   <!-- ═══ Header ═══ -->
   <header class="header" data-header>
-    <a href="#inicio" class="logo">
-      <span class="logo__sym">◉</span>
-      <span class="logo__txt">SOLÍS<em>atelier dental</em></span>
-    </a>
-    <nav class="header__nav">
-      <button class="roll-link header__svc-btn" data-svcmenu-btn><span>Servicios <i class="chev">⌄</i></span><span aria-hidden="true">Servicios <i class="chev">⌄</i></span></button>
-      <a href="#doctor" class="roll-link"><span>Doctor</span><span aria-hidden="true">Doctor</span></a>
-      <a href="#tecnologia" class="roll-link"><span>Tecnología</span><span aria-hidden="true">Tecnología</span></a>
-      <a href="#galeria" class="roll-link"><span>Atelier</span><span aria-hidden="true">Atelier</span></a>
-      <a href="#opiniones" class="roll-link"><span>Voces</span><span aria-hidden="true">Voces</span></a>
-    </nav>
+    <div class="header__left">
+      <a href="#inicio" class="logo">
+        <span class="logo__sym">◉</span>
+        <span class="logo__txt">SOLÍS<em>atelier dental</em></span>
+      </a>
+      <nav class="header__nav">
+        <button class="roll-link header__svc-btn" data-svcmenu-btn><span>Servicios <i class="chev">⌄</i></span><span aria-hidden="true">Servicios <i class="chev">⌄</i></span></button>
+        <a href="#doctor" class="roll-link"><span>Doctor</span><span aria-hidden="true">Doctor</span></a>
+        <a href="#tecnologia" class="roll-link"><span>Tecnología</span><span aria-hidden="true">Tecnología</span></a>
+        <a href="#galeria" class="roll-link"><span>Atelier</span><span aria-hidden="true">Atelier</span></a>
+      </nav>
+    </div>
     <div class="header__right">
       <a href="tel:+522288123456" class="header__phone roll-link"><span>228 812 3456</span><span aria-hidden="true">228 812 3456</span></a>
       <a href="#contacto" class="btn-book"><p class="btn-book__text"><span>Agendar cita</span><span aria-hidden="true">Agendar cita</span></p>
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V4C7 5.65685 8.34315 7 10 7H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 13V10C7 8.34315 5.65685 7 4 7H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+      <a href="tel:+522288123456" class="header__phone-mob" aria-label="Llamar">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10.16 10.74L11.28 9.62C11.44 9.47 11.63 9.37 11.83 9.33C12.04 9.28 12.26 9.3 12.45 9.38L13.82 9.93C14.02 10.01 14.19 10.14 14.31 10.32C14.43 10.5 14.5 10.71 14.5 10.93V13.43C14.5 13.57 14.47 13.72 14.41 13.85C14.35 13.98 14.26 14.11 14.16 14.21C14.05 14.31 13.93 14.38 13.79 14.43C13.65 14.49 13.51 14.51 13.36 14.5C3.79 13.91 1.86 5.81 1.5 2.71C1.48 2.55 1.5 2.4 1.54 2.25C1.59 2.11 1.67 1.97 1.77 1.86C1.87 1.75 2 1.65 2.14 1.59C2.28 1.53 2.43 1.5 2.58 1.5H5C5.21 1.5 5.42 1.57 5.6 1.69C5.78 1.81 5.92 1.98 6 2.18L6.54 3.55C6.62 3.74 6.64 3.96 6.6 4.17C6.56 4.37 6.46 4.56 6.31 4.72L5.19 5.84C5.19 5.84 5.83 10.2 10.16 10.74Z" fill="currentColor"/></svg>
       </a>
       <button class="burger" data-burger aria-label="Menú"><span></span><span></span><span></span></button>
     </div>
@@ -72,7 +75,7 @@
           <p>Estética Dental</p>
         </a>
         <a href="#servicios" class="svcmenu__card" data-svc-go="2">
-          <figure><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=500&q=70" alt="Cirugía Oral" /><span>↗</span></figure>
+          <figure><img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&w=500&q=70" alt="Cirugía Oral" /><span>↗</span></figure>
           <p>Cirugía Oral</p>
         </a>
         <a href="#servicios" class="svcmenu__card" data-svc-go="3">
@@ -111,23 +114,32 @@
             <a href="https://maps.google.com/?q=Xalapa+Centro" target="_blank" rel="noopener">Xalapa Centro</a>
           </div>
         </div>
+
+        <!-- contenido móvil: título oscuro sobre fondo claro -->
+        <div class="hero__mob">
+          <h1 class="hero__mob-title">Estética<br />Dental<br /><i>Premium</i></h1>
+          <p class="hero__mob-desc">Diseñamos sonrisas<br /><em>tan sanas como hermosas</em></p>
+        </div>
+
         <div class="hero__right" data-hero-panel>
-          <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=1600&q=80" alt="Sonrisa radiante" class="hero__img" />
+          <img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?auto=format&fit=crop&w=1600&q=80" alt="Odontología de precisión" class="hero__img" />
           <h2 class="hero__right-title" data-hero-title2>El arte de la <i>sonrisa</i> perfecta</h2>
           <div class="hero__tips">
             <p>Implantología</p><p>Estética Avanzada</p><p>Cirugía Oral</p>
           </div>
+          <p class="hero__desc">Diseñamos sonrisas <br /><em>tan sanas como hermosas</em></p>
+          <p class="hero__video-note">Combinamos ciencia avanzada con el toque de un artista.</p>
         </div>
+
         <span class="hero__dash" aria-hidden="true"></span>
         <div class="hero__titles hero__titles--light" aria-hidden="true">
           <p class="anim-l1">Estética</p>
           <p class="anim-l2">Dental <i>Premium</i></p>
         </div>
         <div class="hero__titles hero__titles--dark">
-          <h1 class="hero__h1"><span class="anim-l1">Estética</span><span class="anim-l2">Dental <i>Premium</i></span></h1>
+          <p class="anim-l1">Estética</p>
+          <p class="anim-l2">Dental <i>Premium</i></p>
         </div>
-        <p class="hero__desc">Diseñamos sonrisas <br /><em>tan sanas como hermosas</em></p>
-        <p class="hero__video-note">Combinamos ciencia avanzada con el toque de un artista.</p>
       </section>
       <div class="hero-plash"></div>
     </div>
@@ -164,42 +176,50 @@
         <div class="services__left" data-svc-images>
           <div class="services__img is-active"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" alt="Implantes dentales" /></div>
           <div class="services__img"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1200&q=80" alt="Diseño de sonrisa" /></div>
-          <div class="services__img"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80" alt="Cirugía oral" /></div>
+          <div class="services__img"><img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&w=1200&q=80" alt="Cirugía oral" /></div>
           <div class="services__img"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1200&q=80" alt="Prevención" /></div>
         </div>
         <div class="services__right">
           <span class="services__label">Nuestras soluciones:</span>
-          <div class="services__lists" data-svc-lists>
-            <ul class="is-active">
-              <li><button class="proc"><span>Implantes unitarios</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-              <li><button class="proc"><span>Cirugía guiada 3D</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-              <li><button class="proc"><span>Rehabilitación total</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-              <li><button class="proc"><span>Injerto óseo</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-            </ul>
-            <ul>
-              <li><button class="proc"><span>Carillas de porcelana</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-              <li><button class="proc"><span>Blanqueamiento</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-              <li><button class="proc"><span>Contorneado estético</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-              <li><button class="proc"><span>Diseño digital DSD</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-            </ul>
-            <ul>
-              <li><button class="proc"><span>Extracciones complejas</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-              <li><button class="proc"><span>Terceros molares</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-              <li><button class="proc"><span>Sedación consciente</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-              <li><button class="proc"><span>Patología oral</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-            </ul>
-            <ul>
-              <li><button class="proc"><span>Limpieza profunda</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-              <li><button class="proc"><span>Exámenes integrales</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-              <li><button class="proc"><span>Ortodoncia invisible</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-              <li><button class="proc"><span>Odontopediatría</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
-            </ul>
-          </div>
           <div class="services__descs" data-svc-descs>
             <p class="is-active">Cirugía de implantes con planeación digital: titanio grado médico y resultados que se sienten como dientes naturales.</p>
             <p>Desde blanqueamiento hasta transformaciones completas, usamos técnicas de vanguardia para crear resultados naturales y deslumbrantes.</p>
             <p>Procedimientos quirúrgicos mínimamente invasivos con la mayor comodidad y una recuperación más rápida.</p>
             <p>Exámenes, limpiezas y controles diseñados para mantener tu salud oral y prevenir problemas antes de que aparezcan.</p>
+          </div>
+          <div class="services__row">
+            <div class="services__thumb" data-svc-thumbs>
+              <img class="is-active" src="https://images.unsplash.com/photo-1593022356769-11f762e25ed9?auto=format&fit=crop&w=500&q=70" alt="" aria-hidden="true" />
+              <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=500&q=70" alt="" aria-hidden="true" />
+              <img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&w=500&q=70" alt="" aria-hidden="true" />
+              <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=500&q=70" alt="" aria-hidden="true" />
+            </div>
+            <div class="services__lists" data-svc-lists>
+              <ul class="is-active">
+                <li><button class="proc"><span>Implantes unitarios</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+                <li><button class="proc"><span>Cirugía guiada 3D</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+                <li><button class="proc"><span>Rehabilitación total</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+                <li><button class="proc"><span>Injerto óseo</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              </ul>
+              <ul>
+                <li><button class="proc"><span>Carillas de porcelana</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+                <li><button class="proc"><span>Blanqueamiento</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+                <li><button class="proc"><span>Contorneado estético</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+                <li><button class="proc"><span>Diseño digital DSD</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              </ul>
+              <ul>
+                <li><button class="proc"><span>Extracciones complejas</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+                <li><button class="proc"><span>Terceros molares</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+                <li><button class="proc"><span>Sedación consciente</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+                <li><button class="proc"><span>Patología oral</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              </ul>
+              <ul>
+                <li><button class="proc"><span>Limpieza profunda</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+                <li><button class="proc"><span>Exámenes integrales</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+                <li><button class="proc"><span>Ortodoncia invisible</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+                <li><button class="proc"><span>Odontopediatría</span><span class="proc__arr"><i class="a-main"></i><i class="a-hover"></i></span></button></li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="services__titles" data-svc-titles>
@@ -229,21 +249,33 @@
           <figure class="reveal-img"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=70" alt="Implantología" /></figure>
           <p class="h-serif"><i>Implantología</i> Avanzada</p>
           <span>Cirugía de implantes con planeación digital y titanio grado médico.</span>
+          <a href="#contacto" class="pill-btn pill-btn--light"><p><span>Saber más</span><span aria-hidden="true">Saber más</span></p>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V4C7 5.65685 8.34315 7 10 7H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 13V10C7 8.34315 5.65685 7 4 7H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
         </div>
         <div class="services__mob-card reveal">
           <figure class="reveal-img"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=800&q=70" alt="Estética dental" /></figure>
           <p class="h-serif"><i>Estética</i> Dental</p>
           <span>Carillas, blanqueamiento y diseño digital de sonrisa.</span>
+          <a href="#contacto" class="pill-btn pill-btn--light"><p><span>Saber más</span><span aria-hidden="true">Saber más</span></p>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V4C7 5.65685 8.34315 7 10 7H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 13V10C7 8.34315 5.65685 7 4 7H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
         </div>
         <div class="services__mob-card reveal">
-          <figure class="reveal-img"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=70" alt="Cirugía oral" /></figure>
+          <figure class="reveal-img"><img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&w=800&q=70" alt="Cirugía oral" /></figure>
           <p class="h-serif"><i>Cirugía</i> Oral</p>
           <span>Procedimientos mínimamente invasivos con sedación consciente.</span>
+          <a href="#contacto" class="pill-btn pill-btn--light"><p><span>Saber más</span><span aria-hidden="true">Saber más</span></p>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V4C7 5.65685 8.34315 7 10 7H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 13V10C7 8.34315 5.65685 7 4 7H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
         </div>
         <div class="services__mob-card reveal">
           <figure class="reveal-img"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=800&q=70" alt="Prevención" /></figure>
           <p class="h-serif"><i>Prevención</i> y Familia</p>
           <span>Exámenes, limpiezas y ortodoncia para toda la familia.</span>
+          <a href="#contacto" class="pill-btn pill-btn--light"><p><span>Saber más</span><span aria-hidden="true">Saber más</span></p>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V4C7 5.65685 8.34315 7 10 7H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 13V10C7 8.34315 5.65685 7 4 7H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
         </div>
       </div>
     </section>
@@ -265,7 +297,7 @@
       <div class="tech__sticky">
         <div class="tech__counter"><p class="tech__num h-serif" data-tech-num>01</p><p class="tech__total">/ 06</p></div>
         <div class="tech__images" data-tech-images>
-          <img class="is-active" src="https://images.unsplash.com/photo-1583912267550-d6c2ac3196c0?auto=format&fit=crop&w=900&q=75" alt="Escáner intraoral 3D" />
+          <img class="is-active" src="https://images.unsplash.com/photo-1593022356769-11f762e25ed9?auto=format&fit=crop&w=900&q=75" alt="Escáner intraoral 3D" />
           <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=900&q=75" alt="Tomografía CBCT" />
           <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=900&q=75" alt="Cámara intraoral" />
           <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=900&q=75" alt="Radiografía digital" />
@@ -274,12 +306,12 @@
         </div>
         <span class="tech__label">Tecnología</span>
         <div class="tech__list" data-tech-list>
-          <div class="tech__item is-active"><span>Escáner intraoral 3D</span></div>
-          <div class="tech__item"><span>Tomografía CBCT</span></div>
-          <div class="tech__item"><span>Cámara intraoral</span></div>
-          <div class="tech__item"><span>Radiografía digital</span></div>
-          <div class="tech__item"><span>CAD/CAM mismo día</span></div>
-          <div class="tech__item"><span>Microscopio quirúrgico</span></div>
+          <div class="tech__item is-active"><span>Escáner intraoral 3D</span><a href="#contacto" class="tech__more">Saber más</a></div>
+          <div class="tech__item"><span>Tomografía CBCT</span><a href="#contacto" class="tech__more">Saber más</a></div>
+          <div class="tech__item"><span>Cámara intraoral</span><a href="#contacto" class="tech__more">Saber más</a></div>
+          <div class="tech__item"><span>Radiografía digital</span><a href="#contacto" class="tech__more">Saber más</a></div>
+          <div class="tech__item"><span>CAD/CAM mismo día</span><a href="#contacto" class="tech__more">Saber más</a></div>
+          <div class="tech__item"><span>Microscopio quirúrgico</span><a href="#contacto" class="tech__more">Saber más</a></div>
         </div>
       </div>
       <div class="tech__plash">
@@ -312,14 +344,6 @@
       </div>
     </section>
 
-    <!-- ═══ Ticker ═══ -->
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker__track" data-ticker>
-        <span>Implantología ✦ Estética Dental ✦ Cirugía Oral ✦ Prevención ✦ Diseño de Sonrisa ✦ Xalapa ✦&nbsp;</span>
-        <span>Implantología ✦ Estética Dental ✦ Cirugía Oral ✦ Prevención ✦ Diseño de Sonrisa ✦ Xalapa ✦&nbsp;</span>
-      </div>
-    </div>
-
     <!-- ═══ Galería ═══ -->
     <section class="gallery" id="galeria">
       <div class="gallery__head">
@@ -329,9 +353,21 @@
       <div class="gallery__mosaic">
         <figure class="g g--tall reveal-img"><img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=800&q=80" alt="Unidad dental moderna" /></figure>
         <figure class="g reveal-img" style="--d:.08s"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80" alt="Atención al paciente" /></figure>
-        <figure class="g reveal-img" style="--d:.16s"><img src="https://images.unsplash.com/photo-1583912267550-d6c2ac3196c0?auto=format&fit=crop&w=800&q=80" alt="Instrumental de precisión" /></figure>
+        <figure class="g reveal-img" style="--d:.16s"><img src="https://images.unsplash.com/photo-1445527815219-ecbfec67492e?auto=format&fit=crop&w=800&q=80" alt="Consultorio dental" /></figure>
         <figure class="g g--wide reveal-img" style="--d:.24s"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1100&q=80" alt="Recepción de la clínica" /></figure>
       </div>
+    </section>
+
+    <!-- ═══ Declaración (círculos) ═══ -->
+    <section class="statement">
+      <span class="statement__circle statement__circle--l" aria-hidden="true"></span>
+      <span class="statement__circle statement__circle--r" aria-hidden="true"></span>
+      <span class="statement__why">¿Por qué<br />elegirnos?</span>
+      <p class="statement__text reveal">
+        <span class="st-line">Estamos <i>aquí</i></span>
+        <span class="st-line st-line--indent">para <i>realzar</i></span>
+        <span class="st-line">tu sonrisa</span>
+      </p>
     </section>
 
     <!-- ═══ Testimonios con tabs ═══ -->
