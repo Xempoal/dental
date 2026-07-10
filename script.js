@@ -376,9 +376,15 @@ document.querySelectorAll('.pill-input input').forEach(input => {
   form.addEventListener('submit', e => {
     e.preventDefault();
     const nombre = form.nombre.value.trim();
+    const tel = form.tel.value.trim();
+    const mensaje = form.mensaje.value.trim();
+    let texto = `Hola, soy ${nombre || 'un paciente'} y me gustaría agendar una valoración.`;
+    if (tel) texto += ` Mi teléfono es ${tel}.`;
+    if (mensaje) texto += ` ${mensaje}`;
+    window.open(`https://wa.me/522281234567?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
     nameEl.textContent = nombre
-      ? `${nombre}, te contactaremos muy pronto para confirmar tu valoración.`
-      : 'Te contactaremos muy pronto para confirmar tu valoración.';
+      ? `${nombre}, te escribimos por WhatsApp para confirmar tu valoración.`
+      : 'Te escribimos por WhatsApp para confirmar tu valoración.';
     modal.classList.add('is-open');
     lockScroll();
     form.reset();

@@ -815,6 +815,26 @@ i, em { font-style: italic; }
 }
 .footer__bottom nav { display: flex; gap: 1.6rem; }
 
+/* ─── Burbuja de WhatsApp ─── */
+.wa-bubble {
+  position: fixed; bottom: 1.6rem; right: 1.6rem; z-index: 45;
+  width: 3.8rem; height: 3.8rem; border-radius: 50%;
+  background: #25d366; color: #fff;
+  display: grid; place-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+  transition: transform .3s var(--ease-out-quint), box-shadow .3s ease;
+}
+.wa-bubble::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  border: 1px solid #25d366;
+  animation: waPulse 2.4s ease-out infinite;
+}
+@keyframes waPulse {
+  0% { transform: scale(1); opacity: .8; }
+  70%, 100% { transform: scale(1.55); opacity: 0; }
+}
+.wa-bubble:hover { transform: translateY(-4px) scale(1.06); box-shadow: 0 16px 38px rgba(0, 0, 0, .35); }
+
 /* ─── Modal de éxito ─── */
 .success {
   position: fixed; inset: 0; z-index: 90;
