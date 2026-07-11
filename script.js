@@ -381,7 +381,7 @@ document.querySelectorAll('.pill-input input').forEach(input => {
     let texto = `Hola, soy ${nombre || 'un paciente'} y me gustaría agendar una valoración.`;
     if (tel) texto += ` Mi teléfono es ${tel}.`;
     if (mensaje) texto += ` ${mensaje}`;
-    window.open(`https://wa.me/522281234567?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
+    window.open(`https://wa.me/522281842426?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
     nameEl.textContent = nombre
       ? `${nombre}, te escribimos por WhatsApp para confirmar tu valoración.`
       : 'Te escribimos por WhatsApp para confirmar tu valoración.';
