@@ -892,12 +892,16 @@ i, em { font-style: italic; }
   .hero__titles, .hero__desc, .hero__video-note, .hero__based,
   .hero__dash, .hero__right-title { display: none; }
   .hero__tips { opacity: 1; top: auto; bottom: 1.3rem; left: 1rem; right: 1rem; font-size: .72rem; }
-  .hero__mob { display: block; position: absolute; z-index: 2; left: 1rem; right: 1rem; top: 15vh; }
+  .hero__mob {
+    position: absolute; z-index: 2; left: 1rem; right: 1rem;
+    top: 6rem; height: calc(44% - 6rem);
+    display: flex; flex-direction: column; justify-content: center;
+  }
   .hero__mob-title {
     font-family: var(--serif); font-weight: 400; color: var(--navy);
-    font-size: clamp(3.2rem, 15vw, 5.4rem); line-height: .9; letter-spacing: -.02em;
+    font-size: clamp(2.6rem, min(13vw, 9.5vh), 5rem); line-height: .9; letter-spacing: -.02em;
   }
-  .hero__mob-desc { margin-top: 1.5rem; font-family: var(--serif); font-size: 1.4rem; line-height: 1.15; }
+  .hero__mob-desc { margin-top: 1rem; font-family: var(--serif); font-size: clamp(1.05rem, 4.5vw, 1.35rem); line-height: 1.15; }
   .hero__mob-desc em { opacity: .7; }
   .hero-plash { height: 30vh; }
 

@@ -131,7 +131,7 @@ function fillOnScroll() {
   if (!fillEl) return;
   const r = fillEl.getBoundingClientRect();
   const vh = window.innerHeight;
-  const p = clamp((vh * 0.92 - r.top) / (r.height + vh * 1.05), 0, 1);
+  const p = clamp((vh * 0.9 - r.top) / (r.height + vh * 0.7), 0, 1);
   fillEl.style.setProperty('--fill', (p * 100).toFixed(1) + '%');
 }
 
