@@ -159,7 +159,7 @@ const stSection = document.querySelector('[data-statement]');
 const stL = document.querySelector('[data-circle-l]');
 const stR = document.querySelector('[data-circle-r]');
 function statementOnScroll() {
-  if (!stSection || !isDesktop()) return;
+  if (!stSection || !stL) return;
   const r = stSection.getBoundingClientRect();
   const total = r.height - window.innerHeight;
   if (total <= 0) return;
@@ -210,6 +210,9 @@ function setService(i) {
 function servicesOnScroll() {
   if (!svcSection || !isDesktop()) return;
   const r = svcSection.getBoundingClientRect();
+  // la lámina de fondo solo se muestra cuando el bloque ya quedó anclado,
+  // para que la foto no aparezca duplicada mientras la imagen viaja
+  svcSection.classList.toggle('is-docked', r.top <= 2);
   if (r.top > 0 || r.bottom < window.innerHeight) return;
   const total = r.height - window.innerHeight;
   const p = clamp(-r.top / total, 0, 0.999);

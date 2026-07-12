@@ -394,7 +394,7 @@ i, em { font-style: italic; }
   will-change: width, height, transform;
 }
 .services__intro img {
-  width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%;
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%;
   filter: grayscale(1) saturate(.85);
 }
 .services__sticky {
@@ -406,7 +406,8 @@ i, em { font-style: italic; }
 .svc-part:last-child { height: 45vh; }
 .services__mob { display: none; }
 
-.services__left { position: relative; width: 50%; height: 100%; overflow: hidden; }
+.services__left { position: relative; width: 50%; height: 100%; overflow: hidden; visibility: hidden; }
+.services.is-docked .services__left { visibility: visible; }
 .services__left::after {
   content: ""; position: absolute; inset: auto 0 0 0; height: 55%;
   background: linear-gradient(180deg, transparent, #111115); z-index: 1;
@@ -417,13 +418,15 @@ i, em { font-style: italic; }
   transition: clip-path .9s var(--ease-menu);
 }
 .services__img.is-active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-.services__img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; filter: grayscale(1) saturate(.85); }
+.services__img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; filter: grayscale(1) saturate(.85); }
 
 .services__right { position: relative; width: 50%; height: 100%; color: var(--light); }
 .services__label {
-  position: absolute; top: 1.75rem; right: 2.5rem; left: 54%;
-  font-size: 1rem; font-weight: 700;
+  position: absolute; top: 1.4rem; right: 2.5rem; left: 54%;
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(2rem, 3.2vw, 3rem); line-height: .95;
 }
+.services__label i { color: var(--gold); }
 .services__descs { position: absolute; top: 7rem; right: 2.5rem; left: 54%; }
 .services__descs p {
   position: absolute; top: 0; left: 0; width: 100%;
@@ -487,9 +490,9 @@ i, em { font-style: italic; }
   position: absolute; bottom: 2rem; left: 2rem; z-index: 3;
   display: grid; gap: .25rem;
 }
-.services__nav-label { color: var(--light); font-size: .85rem; font-weight: 700; margin-bottom: 1.6rem; }
+.services__nav-label { color: var(--light); font-size: 1.05rem; font-weight: 700; margin-bottom: 1.2rem; }
 .services__nav button {
-  color: var(--light-40); font-size: .85rem; font-weight: 700;
+  color: var(--light-40); font-size: 1.05rem; font-weight: 700;
   transition: color .3s ease; text-align: left;
 }
 .services__nav button.is-active, .services__nav button:hover { color: var(--light); }
@@ -545,23 +548,24 @@ i, em { font-style: italic; }
 .tech__images img.is-active { opacity: 1; transform: scale(1); }
 
 .tech__label {
-  position: absolute; right: 2rem; top: 26%;
-  transform: translateY(-140%);
+  position: absolute; right: 2rem; top: calc(50% - 17.5rem);
   font-size: .85rem; font-weight: 700; opacity: .5;
 }
+/* la lista va centrada y compacta para que los 6 renglones siempre
+   quepan en pantalla (antes los últimos quedaban cortados abajo) */
 .tech__list {
-  position: absolute; right: 2rem; top: 28%;
+  position: absolute; right: 2rem; top: 50%; transform: translateY(-50%);
   width: min(36rem, 42vw);
   border-top: 1px solid var(--dark-10);
 }
 .tech__item {
   border-bottom: 1px solid var(--dark-10);
-  padding: 2.2rem 0;
+  padding: 1.4rem 0;
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
 }
 .tech__item span {
   font-family: var(--serif); font-weight: 400;
-  font-size: clamp(1.6rem, 2.6vw, 2.6rem);
+  font-size: clamp(1.3rem, 2vw, 2rem);
   opacity: .3; transition: opacity .3s ease;
   display: block;
 }
@@ -936,24 +940,19 @@ i, em { font-style: italic; }
   .tech__plash { display: none; }
   .tech__counter, .tech__label { display: none; }
   .tech__images { position: static; transform: none; width: 100%; height: 17rem; border-radius: 1rem; margin-bottom: 1.6rem; }
-  .tech__list { position: static; width: 100%; }
+  .tech__list { position: static; width: 100%; transform: none; }
   .tech__item { padding: 1.2rem 0; }
   .tech__item span { opacity: 1; font-size: 1.5rem; }
   .tech__more { opacity: 1; visibility: visible; transform: none; }
 
   .doctor { grid-template-columns: 1fr; padding: 5rem 1rem; gap: 2.4rem; }
 
-  .statement { overflow: hidden; }
-  .statement__sticky { position: static; height: auto; padding: 6rem 1rem; }
-  .statement__plash { display: none; }
-  .statement__why { position: static; transform: none; text-align: center; margin-bottom: 1.6rem; }
+  /* la sección se mantiene sticky para que los círculos entren, roten y
+     envuelvan el texto igual que en desktop (el JS también corre en móvil) */
+  .statement__plash { height: 160vh; }
+  .statement__why { left: 50%; top: 5rem; transform: translateX(-50%); text-align: center; }
   .st-line--indent { padding-left: 0; }
-  .statement__circle {
-    width: 18rem; height: 18rem; margin: -9rem 0 0 -9rem;
-    opacity: 1 !important; transform: none !important;
-  }
-  .statement__circle--l { left: 0; }
-  .statement__circle--r { left: 100%; }
+  .statement__circle { width: 19rem; height: 19rem; margin: -9.5rem 0 0 -9.5rem; }
 
   .testimonials { padding: 5rem 1rem 9rem; }
   .testimonials__inner { grid-template-columns: 1fr; }
