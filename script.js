@@ -221,29 +221,6 @@ function servicesOnScroll() {
 svcNavBtns.forEach((btn, i) => btn.addEventListener('click', () => setService(i)));
 setService(0);
 
-/* ─── Tecnología: lista sticky con contador ─── */
-const techSection = document.querySelector('[data-tech]');
-const techImgs = document.querySelectorAll('[data-tech-images] img');
-const techItems = document.querySelectorAll('[data-tech-list] .tech__item');
-const techNum = document.querySelector('[data-tech-num]');
-let techIdx = -1;
-function setTech(i) {
-  if (i === techIdx || i < 0 || i >= techItems.length) return;
-  techIdx = i;
-  techImgs.forEach((el, j) => el.classList.toggle('is-active', j === i));
-  techItems.forEach((el, j) => el.classList.toggle('is-active', j === i));
-  techNum.textContent = String(i + 1).padStart(2, '0');
-}
-function techOnScroll() {
-  if (!techSection || !isDesktop()) return;
-  const r = techSection.getBoundingClientRect();
-  const total = r.height - window.innerHeight;
-  if (total <= 0) return;
-  const p = clamp(-r.top / total, 0, 0.999);
-  setTech(Math.floor(p * techItems.length));
-}
-setTech(0);
-
 /* ─── Parallax (banner + pre-footer) ─── */
 function makeParallax(selector, amount) {
   const el = document.querySelector(selector);
@@ -267,7 +244,6 @@ function onScroll() {
   introOnScroll();
   statementOnScroll();
   servicesOnScroll();
-  techOnScroll();
   bannerParallax();
   prefooterParallax();
 }
